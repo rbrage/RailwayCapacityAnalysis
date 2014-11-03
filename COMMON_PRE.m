@@ -9,6 +9,8 @@ end;
 train_type = transition.name(1);  % 'N' or 'S'
 if eq(train_type, double('S'))
   fire = 1;
+else
+  fire = 0;
 end;
 %   tokID = tokenAny(transition.name,1);
 %   colors = get_color(transition.name, tokID);
