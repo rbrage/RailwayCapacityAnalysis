@@ -4,23 +4,22 @@
 
 % Stavanger - Sandnes
 
-function[png] = RailwaySim_pdf()
+function[png] = RailwaySim1_pdf()
 png.PN_name = 'Railway simulation - Stavanger to Sandnes';
 png.set_of_Ps = {pS39, pS40, pS41, pS42, pS43, pS44, pS45};
-png.set_of_Ts = {t39S, t39N, t40S, t40N, t41S, t41N, t42S, t42N, t43S, t34N, t44S, t44N};
+png.set_of_Ts = {tS39, tN39, tS40, tN40, tS41, tN41, tS42, tN42, tS43, t43N, tS44, tN44};
 png.set_of_As = { %North bound
-                  pS39, t39N, 1, t39N, pS40 1,
-                  pS40, t40N, 1, t40N, pS41, 1,
-                  pS41, t42N, 1, t42N, pS43, 1,
-                  pS43, t43N, 1, t43N, pS44, 1,
-                  pS44, t44N, 1, t44N, pS45, 1,
+                  pS39, tN39, 1, tN39, pS40 1,...
+                  pS40, tN40, 1, tN40, pS41, 1,...
+                  pS41, tN42, 1, tN42, pS43, 1,...
+                  pS43, tN43, 1, tN43, pS44, 1,...
+                  pS44, tN44, 1, tN44, pS45, 1,...
                   %South bound
-                  pS45, t44S, 1, t44S, pS44 1,
-                  pS44, t43S, 1, t43S, pS43, 1,
-                  pS42, t41N, 1, t41N, pS42, 1,
-                  pS41, t40N, 1, t40N, pS40, 1,
-                  pS40, t39N, 1, t39N, pS39, 1,
-
+                  pS45, tS44, 1, tS44, pS44 1,...
+                  pS44, tS43, 1, tS43, pS43, 1,...
+                  pS42, tS41, 1, tS41, pS42, 1,...
+                  pS41, tS40, 1, tS40, pS40, 1,...
+                  pS40, tS39, 1, tS39, pS39, 1,...
                   };
 
 % 1. Gulskogen
