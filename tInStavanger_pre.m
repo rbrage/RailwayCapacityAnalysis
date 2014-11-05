@@ -9,7 +9,7 @@ if isempty(global_info.times_rogaland_south),
 end;
 
 ctime = current_time();
-routenr = global_info.last_route_traveled;
+routenr = global_info.last_route_traveled_North;
 maxroutes = size(global_info.times_rogaland_south(1,1:end));
 if (maxroutes(2) == routenr)
     fire = 0;
@@ -28,7 +28,7 @@ end
 
 if eq(ctime, NTIT),
   trainType = global_info.next_train_type(2);
-  global_info.last_route_traveled = routenr + 1;
+  global_info.last_route_traveled_North = routenr + 1;
   if(global_info.times_rogaland_south(8,routenr+1) == 0),
     stopPlace = 'Sandnes';
   elseif (global_info.times_rogaland_south(13,routenr+1) == 0),

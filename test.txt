@@ -1,0 +1,19 @@
+Stavanger S	0500	0516	0531
+Paradis	0502	0518	0533
+Mariero	0505	0521	0536
+Jattavagen	0508	0524	0539
+Gausel	0511	0527	0542
+Sandnes Sentrum	0516	0532	0547
+Sandnes	0518	0534	0549
+Ganddal	0521		0552
+Oksnavadporten	0525		0556
+Klepp	0528		0559
+Bryne	0534		0605
+Naerbo	0542		0611
+Varhaug	0546		0615
+Vigrestad	0550		0621
+Brusand	0554		0625
+Ogna	0557		0628
+Sirevag	0600		0631
+Hellvik	0605		0636
+Egersund	0611		0641

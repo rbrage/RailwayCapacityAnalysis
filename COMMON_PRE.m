@@ -2,33 +2,30 @@ function [fire, transition] = COMMON_PRE(transition)
 % function [fire, trans] = COMMON_PRE(trans)
 % disp(transition.name);
 global global_info;
-if ismember(transition.name, {'tInStavanger','tInSandnes'}),
+if ismember(transition.name, {'tInStavanger','tInSandnes','tInNaerbo','tInEgersund'}),
     fire = 1;
     return;
 end;
 
 
-%tokID = tokenAnyColor(transition.name(6:end),1); % Take out the station name in the transition
+%tokID = tokenAny(transition.name(6:end),1); % Take out any token in the station name in the transition
 %colors = get_color(transition.name(6:end), tokID); % colors(routenr, 'N' or 'S')
 %routnr = colors(1); % get the routnumber in colors
-train_type = transition.name(1);  % 'N' or 'S'
+%train_type = char(colors(2));  % 'N' or 'S'
 
-
-if (eq(train_type, double('S'))),
+if eq(char(transition.name(1)),'S'),% South goning tranitions
   if strcmp(transition.name, 'SFromSandnes'),
+    % Take only out trains/tokens that is going to Egersund og Naerbo, and sends that token futhre
     tokID = tokenAnyColor(transition.name(6:end),1,{'Egersund', 'Naerbo'});
   elseif strcmp(transition.name, 'SFromNaerbo'),
+    % Take only out trains/tokens that is going to Egersund, and sends that token futhre
     tokID = tokenAnyColor(transition.name(6:end),1,{'Egersund'});
   else
-    tokID = 1;
+    % Take only out trains/tokens that is going to South, and sends that token futhre
+    tokID = tokenAnyColor(transition.name(6:end),1,{'South'});
   end;
+elseif eq(transition.name(1),'N'), % South goning tranitions
+  % Take only out trains/tokens that is going to North, and sends that token futhre
+  tokID = tokenAnyColor(transition.name(6:end),1,{'North'});
 end;
-
 fire = tokID;
-
-%   tokID = tokenAny(transition.name,1);
-%   colors = get_color(transition.name, tokID);
-% disp(colors);
-  %tokID, colors);
-%granted = request(transition.name, {'Resource-X',1});
-%fire = granted; % fire only if resource acquire is sucessful

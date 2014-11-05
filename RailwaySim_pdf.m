@@ -8,20 +8,32 @@ function [png] = RailwaySim_pdf()
 global global_info;
 
 % Sets name of simulation
-png.PN_name = 'Railway simulation - Stavanger to Sandnes';
+png.PN_name = 'Railway simulation - Stavanger to Egersund';
 
 % Sets generators
-png.set_of_Ps = {'pGenStavanger', 'pGenSandnes'};
-png.set_of_Ts = {'tInStavanger'};
-png.set_of_As = {'pGenStavanger','tInStavanger', 1, 'tInStavanger', 'StavangerS', 1};
+png.set_of_Ps = {'pGenStavanger', 'pGenSandnes', 'pGenNaerbo','pGenEgersund'};
+png.set_of_Ts = {'tInStavanger','tInSandnes','tInNaerbo', 'tInEgersund'};
+png.set_of_As = {'pGenStavanger','tInStavanger', 1, 'tInStavanger', 'StavangerS', 1, ...
+                  'pGenSandnes','tInSandnes',1, 'tInSandnes','Sandnes',1,...
+                  'pGenNaerbo','tInNaerbo',1,'tInNaerbo','Naerbo',1,...
+                  'pGenEgersund','tInEgersund',1,'tInEgersund','Egersund',1};
 
-% Dynamically generates train stations and rail connections
+% Dynamically generates train stations and rail connections south bound
 for i = 1:length(global_info.stations),
     png.set_of_Ps = [png.set_of_Ps {strjoin(['', global_info.stations(i)], '')}];
     if i < length(global_info.stations),
         png.set_of_Ts = [png.set_of_Ts {strjoin(['SFrom', global_info.stations(i)], '')}];
         png.set_of_As = [png.set_of_As {strjoin(['', global_info.stations(i)], ''), strjoin(['SFrom', global_info.stations(i)], '')} 1 ...
             {strjoin(['SFrom', global_info.stations(i)], ''), strjoin(['', global_info.stations(i+1)], '') 1}];
+    end;
+end;
+
+% Dynamically generates train stations and rail connections north bound
+for i=length(global_info.stations):-1:1,
+    if i > 1, % length(global_info.stations),
+        png.set_of_Ts = [png.set_of_Ts {strjoin(['NFrom', global_info.stations(i)], '')}];
+        png.set_of_As = [png.set_of_As {strjoin(['', global_info.stations(i)], ''), strjoin(['NFrom', global_info.stations(i)], '')} 1 ...
+            {strjoin(['NFrom', global_info.stations(i)], ''), strjoin(['', global_info.stations(i-1)], '') 1}];
     end;
 end;
 
