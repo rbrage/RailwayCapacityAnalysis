@@ -20,11 +20,16 @@ initokensStavanger = size(global_info.times_rogaland_south(1, 1:end),2);
 pns = pnstruct('RailwaySim_pdf');
 
 dyn.m0 = {'pGenStavanger', initokensStavanger + 5};%, 'pGenSandnes', initokensSandnes};%How many tokens that are in places
-dyn.ft = {'tInStavanger', 0, 'allothers', 0}; %firering time [hh mm ss]
+
+% Generates train times
+dyn.ft = {'tInStavanger', 1, 'allothers', 1}; %firering time [hh mm ss]
+diff = time_diff(global_info.times_rogaland_south(1:end, 1));
+for i = 1:length(diff),
+    dyn.ft = [dyn.ft {strjoin(['STo', global_info.stations(i+1)], '') diff(i)}];
+end;
 
 pni = initialdynamics(pns, dyn);
 
 sim = gpensim(pni);
 prnss(sim);
-plotp(sim, {'Stavanger', 'Paradis', 'Mariero', 'Jattavagen',...
-    'Gausel', 'SandnesSentrum', 'Sandnes'});
+plotp(sim, global_info.stations);
