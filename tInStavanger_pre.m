@@ -21,15 +21,22 @@ while true,
     if and(NTIT == 0, routenr <= maxroutes(2)),
         routenr = routenr + 1;
     end;
-    
+
     if (NTIT > 0), break; end;
     dist(routenr);
 end
 
 if eq(ctime, NTIT),
   trainType = global_info.next_train_type(2);
-  transition.new_color = {char(trainType)};
   global_info.last_route_traveled = routenr + 1;
+  if(global_info.times_rogaland_south(8,routenr+1) == 0),
+    stopPlace = 'Sandnes';
+  elseif (global_info.times_rogaland_south(13,routenr+1) == 0),
+    stopPlace = 'Naerbo';
+  else
+    stopPlace = 'Egersund';
+  end;
+  transition.new_color = {char(trainType), stopPlace};
   fire = 1;
 else
   fire = 0;
