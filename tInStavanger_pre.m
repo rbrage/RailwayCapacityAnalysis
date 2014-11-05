@@ -2,20 +2,34 @@ function [fire, transition] = tInStavanger_pre(transition)
 
 global global_info;
 
-if isempty(global_info.next_train_time_Stavanger),
+if isempty(global_info.times_rogaland_south),
 
     fire = 0; return;
 
 end;
 
-ctime = string_HH_MM_SS(current_time());%current_time();
-NTIT = global_info.next_train_time_Stavanger();
-nttime = string_HH_MM_SS((NTIT(1,1)*60*60)+(NTIT(1,2)*60));
+ctime = current_time();
+routenr = global_info.last_route_traveled;
+maxroutes = size(global_info.times_rogaland_south(1,1:end));
+if (maxroutes(2) == routenr)
+    fire = 0;
+    return;
+end;
+NTIT = 0;
+while true,
+    NTIT = convert_militery_time(global_info.times_rogaland_south(1, routenr + 1), 2);
+    if and(NTIT == 0, routenr <= maxroutes(2)),
+        routenr = routenr + 1;
+    end;
+    
+    if (NTIT > 0), break; end;
+    dist(routenr);
+end
 
-if eq(ctime, nttime),
-  global_info.next_train_time_Stavanger = global_info.next_train_time_Stavanger(2:end,:);
+if eq(ctime, NTIT),
   trainType = global_info.next_train_type(2);
   transition.new_color = {char(trainType)};
+  global_info.last_route_traveled = routenr + 1;
   fire = 1;
 else
   fire = 0;

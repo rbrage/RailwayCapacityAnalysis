@@ -1,13 +1,14 @@
 function [fire, transition] = COMMON_PRE(transition)
 % function [fire, trans] = COMMON_PRE(trans)
-disp(transition.name);
+% disp(transition.name);
 
 if ismember(transition.name, {'tInStavanger','tInSandnes'}),
-    fire = 1; return;
+    fire = 1;
+    return;
 end;
 
 train_type = transition.name(1);  % 'N' or 'S'
-if eq(train_type, double('S'))
+if (eq(train_type, double('S'))),
   fire = 1;
 else
   fire = 0;
