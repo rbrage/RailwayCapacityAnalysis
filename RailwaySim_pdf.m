@@ -22,18 +22,18 @@ png.set_of_As = {'pGenStavanger','tInStavanger', 1, 'tInStavanger', 'StavangerS'
 for i = 1:length(global_info.stations),
     png.set_of_Ps = [png.set_of_Ps {strjoin(['', global_info.stations(i)], '')}];
     if i < length(global_info.stations),
-        png.set_of_Ts = [png.set_of_Ts {strjoin(['SFrom', global_info.stations(i)], '')}];
-        png.set_of_As = [png.set_of_As {strjoin(['', global_info.stations(i)], ''), strjoin(['SFrom', global_info.stations(i)], '')} 1 ...
-            {strjoin(['SFrom', global_info.stations(i)], ''), strjoin(['', global_info.stations(i+1)], '') 1}];
+        png.set_of_Ts = [png.set_of_Ts {strjoin(['SF', global_info.stations(i)], '')}];
+        png.set_of_As = [png.set_of_As {strjoin(['', global_info.stations(i)], ''), strjoin(['SF', global_info.stations(i)], '')} 1 ...
+            {strjoin(['SF', global_info.stations(i)], ''), strjoin(['', global_info.stations(i+1)], '') 1}];
     end;
 end;
 
 % Dynamically generates train stations and rail connections north bound
-for i=length(global_info.stations):-1:1,
+for i= length(global_info.stations):-1:1,
     if i > 1, % length(global_info.stations),
-        png.set_of_Ts = [png.set_of_Ts {strjoin(['NFrom', global_info.stations(i)], '')}];
-        png.set_of_As = [png.set_of_As {strjoin(['', global_info.stations(i)], ''), strjoin(['NFrom', global_info.stations(i)], '')} 1 ...
-            {strjoin(['NFrom', global_info.stations(i)], ''), strjoin(['', global_info.stations(i-1)], '') 1}];
+        png.set_of_Ts = [png.set_of_Ts {strjoin(['NF', global_info.stations(i)], '')}];
+        png.set_of_As = [png.set_of_As {strjoin(['', global_info.stations(i)], ''), strjoin(['NF', global_info.stations(i)], '')} 1 ...
+            {strjoin(['NF', global_info.stations(i)], ''), strjoin(['', global_info.stations(i-1)], '') 1}];
     end;
 end;
 
