@@ -22,10 +22,10 @@ if NTIT == 0,
 end;
 
 if ctime >= NTIT-global_info.DELTA_TIME,
-  trainType = global_info.next_train_type(1);
+  trainType = 'N';
   global_info.last_route_traveled_North = routenr + 1;
   stopPlace = 'Stavanger';
-  transition.new_color = [trainType stopPlace num2str(routenr+1)];
+  transition.new_color = {trainType stopPlace num2str(routenr+1)};
   fire = 1;
 else
   fire = 0;

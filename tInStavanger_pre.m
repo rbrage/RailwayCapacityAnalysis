@@ -26,7 +26,8 @@ while true,
 end;
 
 if eq(ctime, NTIT-global_info.DELTA_TIME),
-  trainType = global_info.next_train_type(1, 2);
+  direction = 'S';
+  trainType = 'L';
   global_info.last_route_traveled_South = routenr + 1;
   if(global_info.times_rogaland_south(8,routenr+1) == 0),
     stopPlace = 'Sandnes';
@@ -35,7 +36,8 @@ if eq(ctime, NTIT-global_info.DELTA_TIME),
   else
     stopPlace = 'Egersund';
   end;
-  transition.new_color = [trainType stopPlace num2str(routenr+1)];
+  transition.new_color = {direction trainType stopPlace num2str(routenr+1)};
+  disp(transition.new_color);
   fire = 1;
 else
   fire = 0;
