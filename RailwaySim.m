@@ -14,11 +14,11 @@ global_info.START_AT = [04 30 00]; % OPTION: start simulations at 10 AM
 global_info.STOP_AT  = [26 59 59]; % OPTION: stop  simulations at 15 AM
 
 global_info.DELTA_TIME = 60;  % delta_T is 1 minutes
-global_info.times_rogaland_south = dlmread('sorlandsbanenfiles/test.txt', '\t', 0, 1);%dlmread('sorlandsbanenfiles/Stavanger_Egersund_traintimes.txt', '\t', 0, 1);% %dlmread('test.txt', '\t', 0, 1);
-global_info.times_rogaland_north = dlmread('sorlandsbanenfiles/test2.txt', '\t', 0, 1);%dlmread('sorlandsbanenfiles/Egersund_Stavanger_traintimes.txt', '\t', 0, 1);%
+global_info.times_rogaland_south = dlmread('db/test.txt', '\t', 0, 1);%dlmread('db/Stavanger_Egersund_traintimes.txt', '\t', 0, 1);% %dlmread('test.txt', '\t', 0, 1);
+global_info.times_rogaland_north = dlmread('db/test2.txt', '\t', 0, 1);%dlmread('db/Egersund_Stavanger_traintimes.txt', '\t', 0, 1);%
 global_info.last_route_traveled_North = 0;
 global_info.last_route_traveled_South = 0;
-[global_info.stations, tracksnorth, trackssouth, stationtracks] = textread('sorlandsbanenfiles/Trainstations.txt', '%s %d %d %d');
+[global_info.stations, tracksnorth, trackssouth, stationtracks] = textread('db/Trainstations.txt', '%s %d %d %d');
 global_info.station_tracks = containers.Map(global_info.stations, stationtracks);
 global_info.tracks_north = containers.Map(global_info.stations, tracksnorth);
 global_info.tracks_south = containers.Map(global_info.stations, tracksnorth);
