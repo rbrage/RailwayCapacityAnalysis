@@ -32,17 +32,17 @@ for i = 1:length(stations),
 end;
 
 % Dynamically generates train stations and rail connections north bound
-for i= length(stations):-1:1,
-    if i > 1, % length(global_info.stations),
+for i= length(stations)-1:-1:1,
+    %if i > 1, % length(global_info.stations),%
         png.set_of_Ts = [png.set_of_Ts {strjoin(['NT', stations(i)], '')}];
-        png.set_of_As = [png.set_of_As {strjoin(['', stations(i)], ''), strjoin(['NT', stations(i)], '')} 1 ...
-            {strjoin(['NT', stations(i)], ''), strjoin(['', stations(i-1)], '') 1}];
-    end;
+        png.set_of_As = [png.set_of_As {strjoin(['', stations(i+1)], ''), strjoin(['NT', stations(i)], '')} 1 ...
+            {strjoin(['NT', stations(i)], ''), strjoin(['', stations(i)], '') 1}];
+    %end;
 end;
 
 %disp(png.set_of_Ps);
 %disp(png.set_of_Ts);
-%disp(png.set_of_As);
+disp(png.set_of_As);
 
 disp('PDF created');
 
