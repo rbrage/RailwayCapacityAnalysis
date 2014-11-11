@@ -21,7 +21,7 @@ end;
 % tokID = tokenAny(from_station, 1); % Take out any token in the station name in the transition
 % colors = get_color(from_station, tokID); % colors(routenr, 'N' or 'S')
 % routnr = str2num(colors{1}); % get the routnumber in colors
-% 
+%
 % numOfTracks = global_info.station_tracks(station);
 % tracksN = global_info.tracks_north(station);
 % tracksS = global_info.tracks_south(station);
@@ -78,29 +78,22 @@ else
 end;
 
 
-time=0;
-colors = get_color(from_station, tokID); % colors(routenr, 'N' or 'S')
-routnr = str2num(colors{1}); % get the routnumber in colors
-if eq(direction, 'S'),
-    time = global_info.times_rogaland_south(global_info.stationnr(from_station),routnr);
-else
-    time = global_info.times_rogaland_north(20-global_info.stationnr(from_station),routnr);
-end;
-
 % Writes action to result file
+
 fid = fopen('results/run.txt', 'a');
 fprintf(fid, '%s\t%s\t%s\t%s\t%s\t|%d\n', string_HH_MM_SS(ctime), 'D', direction, station, string_HH_MM_SS(convert_militery_time(time, 2)),granted);
 fclose(fid);
-if eq(direction,'S'),
-  fid = fopen('results/run_south.txt', 'a');
-  fprintf(fid, '%s\t%s\t%s\t%s\t%s\t|%d\t|%d\n', string_HH_MM_SS(ctime), 'D', direction, station, string_HH_MM_SS(convert_militery_time(time, 2)),routnr,granted);
-  fclose(fid);
-else
-  fid = fopen('results/run_north.txt', 'a');
-  fprintf(fid, '%s\t%s\t%s\t%s\t%s\t|%d\t|%d\n', string_HH_MM_SS(ctime), 'D', direction, station, string_HH_MM_SS(convert_militery_time(time, 2)),routnr,granted);
-  fclose(fid);
+if fire == 1,
+  if eq(direction,'S'),
+    fid = fopen('results/run_south.txt', 'a');
+    fprintf(fid, '%s\t%s\t%s\t%s\t%s\t|%d\t|%d\n', string_HH_MM_SS(ctime), 'D', direction, station, string_HH_MM_SS(convert_militery_time(time, 2)),routnr,granted);
+    fclose(fid);
+  else
+    fid = fopen('results/run_north.txt', 'a');
+    fprintf(fid, '%s\t%s\t%s\t%s\t%s\t|%d\t|%d\n', string_HH_MM_SS(ctime), 'D', direction, from_station, string_HH_MM_SS(convert_militery_time(time, 2)),routnr,granted);
+    fclose(fid);
+  end;
 end;
-
 % if and(eq(char(transition.name(1)),'N'), fire ~= 0),
 %         disp('#############################');
 %         disp(transition.name);

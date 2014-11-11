@@ -25,6 +25,12 @@ global_info.times_rogaland_north = dlmread('db/test2.txt', '\t', 0, 1);%dlmread(
 global_info.last_route_traveled_North = 0;
 global_info.last_route_traveled_South = 0;
 
+
+global_info.timeToFireEgersund = containers.Map(convert_militery_time(global_info.times_rogaland_north(1, 1:end),2), 1:size(global_info.times_rogaland_north,2));
+global_info.timeToFireNaerbo = containers.Map(convert_militery_time(global_info.times_rogaland_north(8, 1:end),2), 1:size(global_info.times_rogaland_north,2));
+global_info.timeToFireSandnes = containers.Map(convert_militery_time(global_info.times_rogaland_north(13, 1:end),2), 1:size(global_info.times_rogaland_north,2));
+
+
 % loads information about the stations
 [global_info.stations, tracksnorth, trackssouth, stationtracks] = textread('db/Trainstations.txt', '%s %d %d %d');
 % making a station ID

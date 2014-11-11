@@ -1,0 +1,771 @@
+Time	Type	Direction	Station
+04:58:00	D	N	Hellvik	04:57:00	|1
+05:00:00	D	S	StavangerS	05:00:00	|1
+05:02:00	A	S	StavangerS
+05:02:00	D	S	Paradis	05:02:00	|1
+05:04:00	A	N	Hellvik
+05:04:00	D	N	Sirevag	05:03:00	|1
+05:05:00	A	S	Paradis
+05:05:00	D	S	Mariero	05:05:00	|1
+05:08:00	A	S	Mariero
+05:08:00	D	S	Jattavagen	05:08:00	|1
+05:09:00	A	N	Sirevag
+05:09:00	D	N	Ogna	05:08:00	|1
+05:11:00	A	S	Jattavagen
+05:11:00	D	S	Gausel	05:11:00	|1
+05:12:00	A	N	Ogna
+05:12:00	D	N	Brusand	05:11:00	|1
+05:16:00	A	N	Brusand
+05:16:00	A	S	Gausel
+05:16:00	D	N	Vigrestad	05:15:00	|1
+05:16:00	D	S	StavangerS	05:16:00	|1
+05:16:00	D	S	SandnesS	05:16:00	|1
+05:18:00	A	S	SandnesS
+05:18:00	A	S	StavangerS
+05:18:00	D	S	Sandnes	05:18:00	|1
+05:18:00	D	S	Paradis	05:18:00	|1
+05:20:00	A	N	Vigrestad
+05:20:00	D	N	Varhaug	05:19:00	|1
+05:21:00	A	S	Paradis
+05:21:00	A	S	Sandnes
+05:21:00	D	S	Ganddal	05:21:00	|1
+05:21:00	D	S	Mariero	05:21:00	|1
+05:24:00	A	S	Mariero
+05:24:00	D	S	Jattavagen	05:24:00	|1
+05:25:00	A	S	Ganddal
+05:25:00	A	N	Varhaug
+05:25:00	D	S	Oksnavadporten	05:25:00	|1
+05:25:00	D	N	Naerbo	05:24:00	|1
+05:27:00	A	S	Jattavagen
+05:27:00	D	S	Gausel	05:27:00	|1
+05:28:00	A	S	Oksnavadporten
+05:28:00	D	N	Hellvik	05:27:00	|1
+05:28:00	D	S	Klepp	05:28:00	|1
+05:29:00	A	N	Naerbo
+05:29:00	D	N	Bryne	05:28:00	|1
+05:31:00	D	S	StavangerS	05:31:00	|1
+05:32:00	A	S	Gausel
+05:32:00	D	S	SandnesS	05:32:00	|1
+05:33:00	A	S	StavangerS
+05:33:00	D	S	Paradis	05:33:00	|1
+05:34:00	A	S	SandnesS
+05:34:00	A	S	Klepp
+05:34:00	A	N	Hellvik
+05:34:00	D	N	Sirevag	05:33:00	|1
+05:35:00	A	N	Bryne
+05:35:00	D	S	Bryne	05:34:00	|1
+05:35:00	D	N	Klepp	05:34:00	|1
+05:36:00	A	S	Paradis
+05:36:00	D	S	Mariero	05:36:00	|1
+05:39:00	A	S	Mariero
+05:39:00	A	N	Klepp
+05:39:00	A	N	Sirevag
+05:39:00	D	S	Jattavagen	05:39:00	|1
+05:39:00	D	N	Oksnavadporten	05:38:00	|1
+05:39:00	D	N	Ogna	05:38:00	|1
+05:42:00	A	N	Ogna
+05:42:00	A	N	Oksnavadporten
+05:42:00	A	S	Jattavagen
+05:42:00	D	N	Brusand	05:41:00	|1
+05:42:00	D	S	Gausel	05:42:00	|1
+05:42:00	D	N	Ganddal	05:41:00	|1
+05:43:00	A	S	Bryne
+05:43:00	D	S	Naerbo	05:42:00	|1
+05:46:00	A	N	Ganddal
+05:46:00	A	N	Brusand
+05:46:00	D	S	StavangerS	05:46:00	|1
+05:46:00	D	N	Vigrestad	05:44:00	|1
+05:46:00	D	N	Sandnes	05:45:00	|1
+05:47:00	A	S	Naerbo
+05:47:00	A	S	Gausel
+05:47:00	D	S	SandnesS	05:47:00	|1
+05:47:00	D	S	Varhaug	05:46:00	|1
+05:48:00	A	S	StavangerS
+05:48:00	D	S	Paradis	05:48:00	|1
+05:49:00	A	S	SandnesS
+05:49:00	D	S	Sandnes	05:34:00	|1
+05:50:00	A	N	Sandnes
+05:50:00	A	N	Vigrestad
+05:50:00	D	N	SandnesS	06:04:00	|1
+05:51:00	A	S	Paradis
+05:51:00	A	S	Varhaug
+05:51:00	D	S	Vigrestad	06:21:00	|1
+05:51:00	D	S	Mariero	05:51:00	|1
+05:51:00	D	N	Varhaug	05:50:00	|1
+05:52:00	A	N	SandnesS
+05:52:00	A	S	Sandnes
+05:52:00	D	S	Ganddal	05:52:00	|1
+05:52:00	D	N	Gausel	05:51:00	|1
+05:54:00	A	S	Mariero
+05:54:00	D	S	Jattavagen	05:54:00	|1
+05:55:00	A	S	Vigrestad
+05:55:00	D	S	Brusand	05:54:00	|1
+05:56:00	A	S	Ganddal
+05:56:00	A	N	Varhaug
+05:56:00	D	N	Naerbo	05:54:00	|1
+05:56:00	D	S	Oksnavadporten	05:56:00	|1
+05:57:00	A	S	Jattavagen
+05:57:00	A	N	Gausel
+05:57:00	D	N	Jattavagen	06:41:00	|1
+05:57:00	D	S	Gausel	05:57:00	|1
+05:58:00	A	S	Brusand
+05:58:00	D	S	Ogna	05:57:00	|1
+05:59:00	A	S	Oksnavadporten
+05:59:00	D	S	Klepp	05:59:00	|1
+05:59:00	D	N	Hellvik	05:58:00	|1
+06:00:00	A	N	Jattavagen
+06:00:00	A	N	Naerbo
+06:00:00	D	N	Bryne	06:00:00	|1
+06:00:00	D	N	Mariero	05:59:00	|1
+06:01:00	A	S	Ogna
+06:01:00	D	S	Sirevag	06:00:00	|1
+06:01:00	D	S	StavangerS	06:01:00	|1
+06:02:00	A	S	Gausel
+06:02:00	D	S	SandnesS	06:02:00	|1
+06:03:00	A	S	StavangerS
+06:03:00	A	N	Mariero
+06:03:00	D	S	Paradis	06:03:00	|1
+06:03:00	D	N	Paradis	06:02:00	|1
+06:04:00	A	S	SandnesS
+06:05:00	A	N	Hellvik
+06:05:00	A	S	Klepp
+06:05:00	D	N	SandnesS	06:04:00	|1
+06:06:00	A	N	Paradis
+06:06:00	A	S	Paradis
+06:06:00	A	S	Sirevag
+06:06:00	A	N	Bryne
+06:06:00	D	S	Bryne	06:05:00	|1
+06:06:00	D	N	StavangerS	06:05:00	|1
+06:06:00	D	S	Mariero	06:06:00	|1
+06:06:00	D	N	Klepp	06:06:00	|1
+06:06:00	D	S	Hellvik	07:06:00	|1
+06:06:00	D	N	Sirevag	06:05:00	|1
+06:07:00	A	N	SandnesS
+06:07:00	D	N	Gausel	06:06:00	|1
+06:08:00	A	N	StavangerS
+06:09:00	A	S	Mariero
+06:09:00	D	S	Jattavagen	06:09:00	|1
+06:10:00	A	N	Klepp
+06:10:00	D	N	Oksnavadporten	06:10:00	|1
+06:11:00	A	N	Sirevag
+06:11:00	D	N	Ogna	06:10:00	|1
+06:12:00	A	S	Jattavagen
+06:12:00	A	N	Gausel
+06:12:00	A	S	Hellvik
+06:12:00	D	N	Jattavagen	06:56:00	|1
+06:12:00	D	S	Gausel	06:12:00	|1
+06:13:00	A	N	Oksnavadporten
+06:13:00	D	N	Ganddal	06:12:00	|1
+06:14:00	A	N	Ogna
+06:14:00	A	S	Bryne
+06:14:00	D	S	Naerbo	06:11:00	|1
+06:14:00	D	N	Brusand	06:13:00	|1
+06:15:00	A	N	Jattavagen
+06:15:00	D	N	Mariero	06:14:00	|1
+06:16:00	D	S	StavangerS	05:00:00	|1
+06:17:00	A	N	Ganddal
+06:17:00	A	S	Gausel
+06:17:00	D	N	Sandnes	06:16:00	|1
+06:17:00	D	S	SandnesS	06:17:00	|1
+06:18:00	A	S	StavangerS
+06:18:00	A	N	Mariero
+06:18:00	A	N	Brusand
+06:18:00	A	S	Naerbo
+06:18:00	D	S	Varhaug	06:15:00	|1
+06:18:00	D	N	Vigrestad	06:17:00	|1
+06:18:00	D	S	Paradis	06:18:00	|1
+06:18:00	D	N	Paradis	06:17:00	|1
+06:19:00	A	S	SandnesS
+06:19:00	D	S	Sandnes	05:34:00	|1
+06:21:00	A	N	Paradis
+06:21:00	A	S	Paradis
+06:21:00	A	N	Sandnes
+06:21:00	D	N	StavangerS	06:20:00	|1
+06:21:00	D	S	Mariero	06:21:00	|1
+06:21:00	D	N	SandnesS	06:04:00	|1
+06:22:00	A	S	Sandnes
+06:22:00	A	N	Vigrestad
+06:22:00	A	S	Varhaug
+06:22:00	D	S	Vigrestad	06:51:00	|1
+06:22:00	D	S	Ganddal	06:22:00	|1
+06:22:00	D	N	Varhaug	06:21:00	|1
+06:23:00	A	N	SandnesS
+06:23:00	A	N	StavangerS
+06:23:00	D	N	Gausel	06:21:00	|1
+06:24:00	A	S	Mariero
+06:24:00	D	S	Jattavagen	06:24:00	|1
+06:26:00	A	S	Ganddal
+06:26:00	A	S	Vigrestad
+06:26:00	D	S	Brusand	06:25:00	|1
+06:26:00	D	S	Oksnavadporten	06:26:00	|1
+06:27:00	A	S	Jattavagen
+06:27:00	A	N	Varhaug
+06:27:00	D	S	Gausel	06:27:00	|1
+06:27:00	D	N	Naerbo	06:25:00	|1
+06:28:00	A	N	Gausel
+06:28:00	D	N	Jattavagen	06:26:00	|1
+06:29:00	A	S	Oksnavadporten
+06:29:00	A	S	Brusand
+06:29:00	D	S	Klepp	06:29:00	|1
+06:29:00	D	N	Hellvik	04:57:00	|1
+06:29:00	D	S	Ogna	06:28:00	|1
+06:31:00	A	N	Jattavagen
+06:31:00	A	N	Naerbo
+06:31:00	D	N	Mariero	06:29:00	|1
+06:31:00	D	S	StavangerS	05:00:00	|1
+06:31:00	D	N	Bryne	06:29:00	|1
+06:32:00	A	S	Ogna
+06:32:00	A	S	Gausel
+06:32:00	D	S	Sirevag	06:31:00	|1
+06:32:00	D	S	SandnesS	06:32:00	|1
+06:33:00	A	S	StavangerS
+06:33:00	D	S	Paradis	06:33:00	|1
+06:34:00	A	S	SandnesS
+06:34:00	A	N	Mariero
+06:34:00	D	N	Paradis	06:32:00	|1
+06:35:00	A	N	Hellvik
+06:35:00	A	S	Klepp
+06:35:00	D	N	SandnesS	06:04:00	|1
+06:36:00	A	S	Paradis
+06:36:00	D	S	Mariero	06:36:00	|1
+06:37:00	A	N	SandnesS
+06:37:00	A	N	Paradis
+06:37:00	A	S	Sirevag
+06:37:00	A	N	Bryne
+06:37:00	D	S	Bryne	06:35:00	|1
+06:37:00	D	S	Hellvik	00:00:00	|1
+06:37:00	D	N	Sirevag	06:36:00	|1
+06:37:00	D	N	StavangerS	06:35:00	|1
+06:37:00	D	N	Klepp	06:35:00	|1
+06:37:00	D	N	Gausel	06:36:00	|1
+06:39:00	A	N	StavangerS
+06:39:00	A	S	Mariero
+06:39:00	D	S	Jattavagen	06:39:00	|1
+06:41:00	A	N	Klepp
+06:41:00	D	N	Oksnavadporten	06:39:00	|1
+06:42:00	A	S	Jattavagen
+06:42:00	A	N	Gausel
+06:42:00	A	N	Sirevag
+06:42:00	D	N	Jattavagen	07:26:00	|1
+06:42:00	D	S	Gausel	06:42:00	|1
+06:42:00	D	N	Ogna	06:41:00	|1
+06:43:00	A	S	Hellvik
+06:44:00	A	N	Oksnavadporten
+06:44:00	D	N	Ganddal	06:42:00	|1
+06:45:00	A	N	Ogna
+06:45:00	A	N	Jattavagen
+06:45:00	A	S	Bryne
+06:45:00	D	S	Naerbo	06:40:00	|1
+06:45:00	D	N	Mariero	06:44:00	|1
+06:45:00	D	N	Brusand	06:44:00	|1
+06:46:00	D	S	StavangerS	05:00:00	|1
+06:47:00	A	S	Gausel
+06:47:00	D	S	SandnesS	06:47:00	|1
+06:48:00	A	S	StavangerS
+06:48:00	A	N	Mariero
+06:48:00	A	N	Ganddal
+06:48:00	D	N	Paradis	06:47:00	|1
+06:48:00	D	N	Sandnes	06:46:00	|1
+06:48:00	D	S	Paradis	06:48:00	|1
+06:49:00	A	S	SandnesS
+06:49:00	A	N	Brusand
+06:49:00	A	S	Naerbo
+06:49:00	D	N	Vigrestad	06:47:00	|1
+06:49:00	D	S	Varhaug	06:44:00	|1
+06:49:00	D	S	Sandnes	05:34:00	|1
+06:51:00	A	S	Paradis
+06:51:00	A	N	Paradis
+06:51:00	D	S	Mariero	06:51:00	|1
+06:51:00	D	N	StavangerS	06:50:00	|1
+06:52:00	A	S	Sandnes
+06:52:00	A	N	Sandnes
+06:52:00	D	N	SandnesS	06:04:00	|1
+06:52:00	D	S	Ganddal	06:52:00	|1
+06:53:00	A	N	StavangerS
+06:53:00	A	S	Varhaug
+06:53:00	A	N	Vigrestad
+06:53:00	D	S	Vigrestad	06:51:00	|1
+06:53:00	D	N	Varhaug	06:51:00	|1
+06:54:00	A	N	SandnesS
+06:54:00	A	S	Mariero
+06:54:00	D	S	Jattavagen	06:54:00	|1
+06:54:00	D	N	Gausel	06:51:00	|1
+06:56:00	A	S	Ganddal
+06:56:00	D	S	Oksnavadporten	06:56:00	|1
+06:57:00	A	S	Jattavagen
+06:57:00	A	S	Vigrestad
+06:57:00	D	S	Brusand	06:55:00	|1
+06:57:00	D	S	Gausel	06:57:00	|1
+06:58:00	A	N	Varhaug
+06:58:00	D	N	Naerbo	06:55:00	|1
+06:59:00	A	S	Oksnavadporten
+06:59:00	A	N	Gausel
+06:59:00	D	N	Jattavagen	06:56:00	|1
+06:59:00	D	N	Hellvik	04:57:00	|1
+06:59:00	D	S	Klepp	06:59:00	|1
+07:00:00	A	S	Brusand
+07:00:00	D	S	Ogna	06:58:00	|1
+07:01:00	D	S	StavangerS	05:00:00	|1
+07:02:00	A	N	Jattavagen
+07:02:00	A	N	Naerbo
+07:02:00	A	S	Gausel
+07:02:00	D	N	Mariero	06:59:00	|1
+07:02:00	D	N	Bryne	06:59:00	|1
+07:02:00	D	S	SandnesS	07:02:00	|1
+07:03:00	A	S	StavangerS
+07:03:00	A	S	Ogna
+07:03:00	D	S	Paradis	07:03:00	|1
+07:03:00	D	S	Sirevag	07:01:00	|1
+07:04:00	A	S	SandnesS
+07:05:00	A	N	Mariero
+07:05:00	A	S	Klepp
+07:05:00	A	N	Hellvik
+07:05:00	D	N	Paradis	07:02:00	|1
+07:05:00	D	N	SandnesS	06:04:00	|1
+07:06:00	A	S	Paradis
+07:06:00	D	S	Mariero	07:06:00	|1
+07:07:00	A	N	SandnesS
+07:07:00	D	N	Gausel	07:06:00	|1
+07:08:00	A	N	Paradis
+07:08:00	A	S	Sirevag
+07:08:00	A	N	Bryne
+07:08:00	D	S	Bryne	07:05:00	|1
+07:08:00	D	N	StavangerS	07:05:00	|1
+07:08:00	D	N	Sirevag	07:06:00	|1
+07:08:00	D	N	Klepp	07:06:00	|1
+07:08:00	D	S	Hellvik	07:06:00	|1
+07:09:00	A	S	Mariero
+07:09:00	D	S	Jattavagen	07:09:00	|1
+07:10:00	A	N	StavangerS
+07:12:00	A	S	Jattavagen
+07:12:00	A	N	Klepp
+07:12:00	A	N	Gausel
+07:12:00	D	N	Oksnavadporten	07:10:00	|1
+07:12:00	D	S	Gausel	07:12:00	|1
+07:12:00	D	N	Jattavagen	07:11:00	|1
+07:13:00	A	N	Sirevag
+07:13:00	D	N	Ogna	07:11:00	|1
+07:14:00	A	S	Hellvik
+07:15:00	A	N	Jattavagen
+07:15:00	A	N	Oksnavadporten
+07:15:00	D	N	Ganddal	07:12:00	|1
+07:15:00	D	N	Mariero	07:14:00	|1
+07:16:00	A	N	Ogna
+07:16:00	A	S	Bryne
+07:16:00	D	N	Brusand	07:14:00	|1
+07:16:00	D	S	StavangerS	05:00:00	|1
+07:17:00	A	S	Gausel
+07:17:00	D	S	SandnesS	07:17:00	|1
+07:18:00	A	S	StavangerS
+07:18:00	A	N	Mariero
+07:18:00	D	S	Paradis	07:18:00	|1
+07:18:00	D	N	Bryne	06:59:00	|1
+07:18:00	D	N	Paradis	07:17:00	|1
+07:19:00	A	S	SandnesS
+07:19:00	A	N	Ganddal
+07:19:00	D	S	Sandnes	05:34:00	|1
+07:19:00	D	N	Sandnes	07:16:00	|1
+07:20:00	A	N	Brusand
+07:20:00	D	N	Vigrestad	07:17:00	|1
+07:21:00	A	N	Paradis
+07:21:00	A	S	Paradis
+07:21:00	D	N	StavangerS	07:20:00	|1
+07:21:00	D	S	Mariero	07:21:00	|1
+07:22:00	A	S	Sandnes
+07:22:00	D	S	Ganddal	07:22:00	|1
+07:23:00	A	N	StavangerS
+07:23:00	A	N	Sandnes
+07:23:00	D	N	SandnesS	06:04:00	|1
+07:24:00	A	S	Mariero
+07:24:00	A	N	Vigrestad
+07:24:00	A	N	Bryne
+07:24:00	D	N	Klepp	07:23:00	|1
+07:24:00	D	S	Jattavagen	07:24:00	|1
+07:24:00	D	N	Varhaug	07:21:00	|1
+07:25:00	A	N	SandnesS
+07:25:00	D	N	Gausel	07:21:00	|1
+07:26:00	A	S	Ganddal
+07:26:00	D	S	Oksnavadporten	07:26:00	|1
+07:27:00	A	S	Jattavagen
+07:27:00	D	S	Gausel	07:27:00	|1
+07:28:00	A	N	Klepp
+07:29:00	A	S	Oksnavadporten
+07:29:00	A	N	Varhaug
+07:29:00	D	N	Hellvik	04:57:00	|1
+07:29:00	D	N	Naerbo	07:25:00	|1
+07:29:00	D	N	Oksnavadporten	07:29:00	|1
+07:29:00	D	S	Klepp	07:29:00	|1
+07:30:00	A	N	Gausel
+07:30:00	D	N	Jattavagen	07:26:00	|1
+07:31:00	D	S	StavangerS	05:00:00	|1
+07:32:00	A	N	Oksnavadporten
+07:32:00	A	S	Gausel
+07:32:00	D	S	SandnesS	07:32:00	|1
+07:32:00	D	N	Ganddal	07:32:00	|1
+07:33:00	A	S	StavangerS
+07:33:00	A	N	Jattavagen
+07:33:00	A	N	Naerbo
+07:33:00	D	N	Mariero	07:29:00	|1
+07:33:00	D	S	Paradis	07:33:00	|1
+07:33:00	D	N	Bryne	06:59:00	|1
+07:34:00	A	S	SandnesS
+07:35:00	A	S	Klepp
+07:35:00	A	N	Hellvik
+07:35:00	D	N	Sirevag	07:34:00	|1
+07:35:00	D	N	SandnesS	06:04:00	|1
+07:36:00	A	S	Paradis
+07:36:00	A	N	Mariero
+07:36:00	A	N	Ganddal
+07:36:00	D	S	Mariero	07:36:00	|1
+07:36:00	D	N	Sandnes	07:36:00	|1
+07:36:00	D	N	Paradis	07:32:00	|1
+07:37:00	A	N	SandnesS
+07:37:00	D	N	Gausel	07:36:00	|1
+07:39:00	A	N	Paradis
+07:39:00	A	S	Mariero
+07:39:00	A	N	Bryne
+07:39:00	D	N	StavangerS	07:35:00	|1
+07:39:00	D	S	Bryne	07:35:00	|1
+07:39:00	D	S	Jattavagen	07:39:00	|1
+07:39:00	D	N	Klepp	07:35:00	|1
+07:40:00	A	N	Sandnes
+07:40:00	A	N	Sirevag
+07:40:00	D	N	SandnesS	06:04:00	|1
+07:40:00	D	N	Ogna	07:39:00	|1
+07:41:00	A	N	StavangerS
+07:42:00	A	N	SandnesS
+07:42:00	A	S	Jattavagen
+07:42:00	A	N	Gausel
+07:42:00	D	N	Jattavagen	08:11:00	|1
+07:42:00	D	S	Gausel	07:42:00	|1
+07:42:00	D	N	Gausel	07:41:00	|1
+07:43:00	A	N	Ogna
+07:43:00	A	N	Klepp
+07:43:00	D	N	Oksnavadporten	07:39:00	|1
+07:43:00	D	N	Brusand	07:42:00	|1
+07:45:00	A	N	Jattavagen
+07:45:00	D	N	Mariero	07:44:00	|1
+07:46:00	A	N	Oksnavadporten
+07:46:00	D	N	Ganddal	07:42:00	|1
+07:46:00	D	S	StavangerS	05:00:00	|1
+07:47:00	A	N	Brusand
+07:47:00	A	N	Gausel
+07:47:00	A	S	Gausel
+07:47:00	A	S	Bryne
+07:47:00	D	N	Jattavagen	07:46:00	|1
+07:47:00	D	S	Naerbo	07:10:00	|1
+07:47:00	D	N	Vigrestad	07:46:00	|1
+07:47:00	D	S	SandnesS	07:47:00	|1
+07:48:00	A	S	StavangerS
+07:48:00	A	N	Mariero
+07:48:00	D	N	Paradis	07:47:00	|1
+07:48:00	D	S	Paradis	07:48:00	|1
+07:49:00	A	S	SandnesS
+07:49:00	D	S	Sandnes	05:34:00	|1
+07:50:00	A	N	Jattavagen
+07:50:00	A	N	Ganddal
+07:50:00	D	N	Mariero	07:49:00	|1
+07:50:00	D	N	Sandnes	07:46:00	|1
+07:51:00	A	S	Paradis
+07:51:00	A	N	Paradis
+07:51:00	A	N	Vigrestad
+07:51:00	A	S	Naerbo
+07:51:00	D	N	Varhaug	07:51:00	|1
+07:51:00	D	N	StavangerS	07:50:00	|1
+07:51:00	D	S	Mariero	07:51:00	|1
+07:52:00	A	S	Sandnes
+07:52:00	D	S	Ganddal	07:54:00	|1
+07:53:00	A	N	StavangerS
+07:53:00	A	N	Mariero
+07:53:00	D	N	Paradis	07:52:00	|1
+07:54:00	A	S	Mariero
+07:54:00	A	N	Sandnes
+07:54:00	D	S	Jattavagen	07:54:00	|1
+07:54:00	D	N	SandnesS	06:04:00	|1
+07:56:00	A	N	SandnesS
+07:56:00	A	N	Paradis
+07:56:00	A	S	Ganddal
+07:56:00	A	N	Varhaug
+07:56:00	D	N	StavangerS	07:55:00	|1
+07:56:00	D	N	Gausel	07:51:00	|1
+07:56:00	D	N	Naerbo	00:00:00	|1
+07:56:00	D	S	Varhaug	07:46:00	|1
+07:56:00	D	S	Oksnavadporten	07:57:00	|1
+07:57:00	A	S	Jattavagen
+07:57:00	D	S	Gausel	07:57:00	|1
+07:58:00	A	N	StavangerS
+07:59:00	A	S	Oksnavadporten
+07:59:00	D	S	Klepp	08:00:00	|1
+08:00:00	A	S	Varhaug
+08:00:00	A	N	Naerbo
+08:00:00	D	S	Vigrestad	07:51:00	|1
+08:00:00	D	N	Bryne	06:59:00	|1
+08:01:00	A	N	Gausel
+08:01:00	D	N	Jattavagen	07:56:00	|1
+08:01:00	D	S	StavangerS	05:00:00	|1
+08:02:00	A	S	Gausel
+08:02:00	D	S	SandnesS	08:02:00	|1
+08:03:00	A	S	StavangerS
+08:03:00	D	S	Paradis	08:03:00	|1
+08:04:00	A	S	SandnesS
+08:04:00	A	N	Jattavagen
+08:04:00	A	S	Vigrestad
+08:04:00	D	N	Mariero	07:59:00	|1
+08:04:00	D	S	Brusand	07:55:00	|1
+08:05:00	A	S	Klepp
+08:05:00	D	N	SandnesS	06:04:00	|1
+08:06:00	A	S	Paradis
+08:06:00	A	N	Bryne
+08:06:00	D	N	Klepp	00:00:00	|1
+08:06:00	D	S	Bryne	08:06:00	|1
+08:06:00	D	S	Mariero	08:06:00	|1
+08:07:00	A	N	SandnesS
+08:07:00	A	S	Brusand
+08:07:00	A	N	Mariero
+08:07:00	D	N	Paradis	08:02:00	|1
+08:07:00	D	S	Ogna	07:58:00	|1
+08:07:00	D	N	Gausel	08:06:00	|1
+08:09:00	A	S	Mariero
+08:09:00	D	S	Jattavagen	08:09:00	|1
+08:10:00	A	S	Ogna
+08:10:00	A	N	Paradis
+08:10:00	A	N	Klepp
+08:10:00	D	S	Sirevag	08:01:00	|1
+08:10:00	D	N	Oksnavadporten	08:10:00	|1
+08:10:00	D	N	StavangerS	08:05:00	|1
+08:12:00	A	N	StavangerS
+08:12:00	A	S	Jattavagen
+08:12:00	A	N	Gausel
+08:12:00	D	S	Gausel	08:12:00	|1
+08:12:00	D	N	Jattavagen	08:11:00	|1
+08:13:00	A	N	Oksnavadporten
+08:13:00	D	N	Ganddal	08:12:00	|1
+08:14:00	A	S	Bryne
+08:15:00	A	N	Jattavagen
+08:15:00	A	S	Sirevag
+08:15:00	D	S	Hellvik	08:06:00	|1
+08:15:00	D	N	Mariero	08:14:00	|1
+08:16:00	D	S	StavangerS	05:00:00	|1
+08:17:00	A	N	Ganddal
+08:17:00	A	S	Gausel
+08:17:00	D	N	Sandnes	08:16:00	|1
+08:17:00	D	S	SandnesS	08:17:00	|1
+08:18:00	A	S	StavangerS
+08:18:00	A	N	Mariero
+08:18:00	D	N	Paradis	08:17:00	|1
+08:18:00	D	S	Paradis	08:18:00	|1
+08:19:00	A	S	SandnesS
+08:19:00	D	S	Sandnes	05:34:00	|1
+08:21:00	A	S	Paradis
+08:21:00	A	N	Paradis
+08:21:00	A	N	Sandnes
+08:21:00	A	S	Hellvik
+08:21:00	D	S	Mariero	08:21:00	|1
+08:21:00	D	N	StavangerS	08:20:00	|1
+08:21:00	D	N	SandnesS	06:04:00	|1
+08:22:00	A	S	Sandnes
+08:22:00	D	S	Ganddal	08:22:00	|1
+08:23:00	A	N	SandnesS
+08:23:00	A	N	StavangerS
+08:23:00	D	N	Gausel	08:21:00	|1
+08:24:00	A	S	Mariero
+08:24:00	D	S	Jattavagen	08:24:00	|1
+08:26:00	A	S	Ganddal
+08:26:00	D	S	Oksnavadporten	08:26:00	|1
+08:26:00	D	N	Hellvik	04:57:00	|1
+08:26:00	D	N	Bryne	06:59:00	|1
+08:27:00	A	S	Jattavagen
+08:27:00	D	S	Gausel	08:27:00	|1
+08:28:00	A	N	Gausel
+08:28:00	D	N	Jattavagen	08:26:00	|1
+08:29:00	A	S	Oksnavadporten
+08:29:00	D	S	Klepp	08:29:00	|1
+08:31:00	A	N	Jattavagen
+08:31:00	D	N	Mariero	08:29:00	|1
+08:31:00	D	S	StavangerS	05:00:00	|1
+08:32:00	A	S	Gausel
+08:32:00	A	N	Bryne
+08:32:00	A	N	Hellvik
+08:32:00	D	S	SandnesS	08:32:00	|1
+08:32:00	D	N	Sirevag	08:31:00	|1
+08:33:00	A	S	StavangerS
+08:33:00	D	S	Paradis	08:33:00	|1
+08:34:00	A	S	SandnesS
+08:34:00	A	N	Mariero
+08:34:00	D	N	Paradis	08:32:00	|1
+08:35:00	A	S	Klepp
+08:35:00	D	N	SandnesS	06:04:00	|1
+08:35:00	D	N	Klepp	08:33:00	|1
+08:35:00	D	S	Bryne	08:33:00	|1
+08:36:00	A	S	Paradis
+08:36:00	D	S	Mariero	08:36:00	|1
+08:37:00	A	N	SandnesS
+08:37:00	A	N	Paradis
+08:37:00	A	N	Sirevag
+08:37:00	D	N	Gausel	08:36:00	|1
+08:37:00	D	N	StavangerS	08:35:00	|1
+08:37:00	D	N	Ogna	08:36:00	|1
+08:39:00	A	N	StavangerS
+08:39:00	A	S	Mariero
+08:39:00	A	N	Klepp
+08:39:00	D	N	Oksnavadporten	08:37:00	|1
+08:39:00	D	S	Jattavagen	08:39:00	|1
+08:40:00	A	N	Ogna
+08:40:00	D	N	Brusand	08:39:00	|1
+08:42:00	A	S	Jattavagen
+08:42:00	A	N	Oksnavadporten
+08:42:00	A	N	Gausel
+08:42:00	D	S	Gausel	08:42:00	|1
+08:42:00	D	N	Ganddal	08:40:00	|1
+08:42:00	D	N	Jattavagen	08:41:00	|1
+08:43:00	A	S	Bryne
+08:43:00	D	S	Naerbo	07:10:00	|1
+08:44:00	A	N	Brusand
+08:44:00	D	N	Vigrestad	08:42:00	|1
+08:45:00	A	N	Jattavagen
+08:45:00	D	N	Mariero	08:44:00	|1
+08:46:00	A	N	Ganddal
+08:46:00	D	N	Sandnes	08:45:00	|1
+08:46:00	D	S	StavangerS	05:00:00	|1
+08:47:00	A	S	Naerbo
+08:47:00	A	S	Gausel
+08:47:00	D	S	SandnesS	08:47:00	|1
+08:47:00	D	S	Varhaug	08:43:00	|1
+08:48:00	A	S	StavangerS
+08:48:00	A	N	Mariero
+08:48:00	A	N	Vigrestad
+08:48:00	D	N	Paradis	08:47:00	|1
+08:48:00	D	S	Paradis	08:48:00	|1
+08:49:00	A	S	SandnesS
+08:49:00	D	S	Sandnes	05:34:00	|1
+08:50:00	A	N	Sandnes
+08:50:00	D	N	SandnesS	06:04:00	|1
+08:51:00	A	S	Paradis
+08:51:00	A	N	Paradis
+08:51:00	A	S	Varhaug
+08:51:00	D	S	Mariero	08:51:00	|1
+08:51:00	D	N	Varhaug	08:48:00	|1
+08:51:00	D	S	Vigrestad	08:48:00	|1
+08:51:00	D	N	StavangerS	08:50:00	|1
+08:52:00	A	N	SandnesS
+08:52:00	A	S	Sandnes
+08:52:00	D	N	Gausel	08:51:00	|1
+08:52:00	D	S	Ganddal	08:52:00	|1
+08:53:00	A	N	StavangerS
+08:54:00	A	S	Mariero
+08:54:00	D	S	Jattavagen	08:54:00	|1
+08:55:00	A	S	Vigrestad
+08:55:00	D	S	Brusand	08:52:00	|1
+08:56:00	A	S	Ganddal
+08:56:00	A	N	Varhaug
+08:56:00	D	S	Oksnavadporten	08:56:00	|1
+08:56:00	D	N	Naerbo	08:52:00	|1
+08:57:00	A	S	Jattavagen
+08:57:00	A	N	Gausel
+08:57:00	D	N	Jattavagen	09:26:00	|1
+08:57:00	D	S	Gausel	08:57:00	|1
+08:58:00	A	S	Brusand
+08:58:00	D	S	Ogna	08:56:00	|1
+08:59:00	A	S	Oksnavadporten
+08:59:00	D	S	Klepp	08:59:00	|1
+09:00:00	A	N	Jattavagen
+09:00:00	A	N	Naerbo
+09:00:00	D	N	Mariero	08:59:00	|1
+09:00:00	D	N	Bryne	06:59:00	|1
+09:01:00	A	S	Ogna
+09:01:00	D	S	Sirevag	08:59:00	|1
+09:01:00	D	S	StavangerS	05:00:00	|1
+09:02:00	A	S	Gausel
+09:02:00	D	S	SandnesS	09:02:00	|1
+09:03:00	A	S	StavangerS
+09:03:00	A	N	Mariero
+09:03:00	D	S	Paradis	09:03:00	|1
+09:03:00	D	N	Paradis	09:02:00	|1
+09:04:00	A	S	SandnesS
+09:05:00	A	S	Klepp
+09:05:00	D	N	SandnesS	06:04:00	|1
+09:06:00	A	N	Paradis
+09:06:00	A	S	Paradis
+09:06:00	A	S	Sirevag
+09:06:00	A	N	Bryne
+09:06:00	D	S	Mariero	09:06:00	|1
+09:06:00	D	S	Hellvik	09:04:00	|1
+09:06:00	D	S	Bryne	09:05:00	|1
+09:06:00	D	N	Klepp	09:04:00	|1
+09:06:00	D	N	StavangerS	09:05:00	|1
+09:07:00	A	N	SandnesS
+09:07:00	D	N	Gausel	09:06:00	|1
+09:08:00	A	N	StavangerS
+09:09:00	A	S	Mariero
+09:09:00	D	S	Jattavagen	09:09:00	|1
+09:10:00	A	N	Klepp
+09:10:00	D	N	Oksnavadporten	09:08:00	|1
+09:12:00	A	S	Jattavagen
+09:12:00	A	N	Gausel
+09:12:00	A	S	Hellvik
+09:12:00	D	S	Gausel	09:12:00	|1
+09:12:00	D	N	Jattavagen	09:11:00	|1
+09:13:00	A	N	Oksnavadporten
+09:13:00	D	N	Ganddal	09:11:00	|1
+09:14:00	A	S	Bryne
+09:15:00	A	N	Jattavagen
+09:15:00	D	N	Mariero	09:14:00	|1
+09:17:00	A	N	Ganddal
+09:17:00	A	S	Gausel
+09:17:00	D	S	SandnesS	09:17:00	|1
+09:17:00	D	N	Sandnes	09:16:00	|1
+09:18:00	A	N	Mariero
+09:18:00	D	N	Paradis	09:17:00	|1
+09:19:00	A	S	SandnesS
+09:19:00	D	S	Sandnes	05:34:00	|1
+09:21:00	A	N	Paradis
+09:21:00	A	N	Sandnes
+09:21:00	D	N	SandnesS	06:04:00	|1
+09:21:00	D	N	StavangerS	09:20:00	|1
+09:22:00	A	S	Sandnes
+09:22:00	D	S	Ganddal	09:22:00	|1
+09:23:00	A	N	StavangerS
+09:23:00	A	N	SandnesS
+09:23:00	D	N	Gausel	09:21:00	|1
+09:26:00	A	S	Ganddal
+09:26:00	D	S	Oksnavadporten	09:26:00	|1
+09:28:00	A	N	Gausel
+09:28:00	D	N	Jattavagen	09:26:00	|1
+09:29:00	A	S	Oksnavadporten
+09:29:00	D	S	Klepp	09:29:00	|1
+09:31:00	A	N	Jattavagen
+09:31:00	D	N	Mariero	09:29:00	|1
+09:34:00	A	N	Mariero
+09:34:00	D	N	Paradis	09:32:00	|1
+09:35:00	A	S	Klepp
+09:35:00	D	S	Bryne	09:33:00	|1
+09:35:00	D	N	SandnesS	06:04:00	|1
+09:37:00	A	N	SandnesS
+09:37:00	A	N	Paradis
+09:37:00	D	N	StavangerS	09:35:00	|1
+09:37:00	D	N	Gausel	09:36:00	|1
+09:39:00	A	N	StavangerS
+09:42:00	A	N	Gausel
+09:42:00	D	N	Jattavagen	09:41:00	|1
+09:43:00	A	S	Bryne
+09:43:00	D	S	Naerbo	07:10:00	|1
+09:45:00	A	N	Jattavagen
+09:45:00	D	N	Mariero	09:44:00	|1
+09:47:00	A	S	Naerbo
+09:47:00	D	S	Varhaug	09:42:00	|1
+09:48:00	A	N	Mariero
+09:48:00	D	N	Paradis	09:47:00	|1
+09:51:00	A	N	Paradis
+09:51:00	A	S	Varhaug
+09:51:00	D	N	StavangerS	09:50:00	|1
+09:51:00	D	S	Vigrestad	09:48:00	|1
+09:53:00	A	N	StavangerS
+09:55:00	A	S	Vigrestad
+09:55:00	D	S	Brusand	09:52:00	|1
+09:58:00	A	S	Brusand
+09:58:00	D	S	Ogna	09:56:00	|1
+10:01:00	A	S	Ogna
+10:01:00	D	S	Sirevag	09:59:00	|1
+10:06:00	A	S	Sirevag
+10:06:00	D	S	Hellvik	10:04:00	|1
+10:12:00	A	S	Hellvik

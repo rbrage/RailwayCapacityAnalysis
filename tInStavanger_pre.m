@@ -37,7 +37,6 @@ if eq(ctime, NTIT-global_info.DELTA_TIME),
     stopPlace = 'Egersund';
   end;
   transition.new_color = {direction trainType stopPlace num2str(routenr+1)};
-  disp(transition.new_color);
   fire = 1;
 else
   fire = 0;

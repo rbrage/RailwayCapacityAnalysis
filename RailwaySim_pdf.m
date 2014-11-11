@@ -42,7 +42,7 @@ end;
 
 % disp(png.set_of_Ps);
 % disp(png.set_of_Ts);
-disp(png.set_of_As);
+%disp(png.set_of_As);
 
 disp('PDF created');
 
