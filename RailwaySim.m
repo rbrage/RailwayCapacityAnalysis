@@ -18,11 +18,17 @@ global_info.times_rogaland_south = dlmread('db/test.txt', '\t', 0, 1);%dlmread('
 global_info.times_rogaland_north = dlmread('db/test2.txt', '\t', 0, 1);%dlmread('db/Egersund_Stavanger_traintimes.txt', '\t', 0, 1);%
 global_info.last_route_traveled_North = 0;
 global_info.last_route_traveled_South = 0;
+
+% loads information about the stations
 [global_info.stations, tracksnorth, trackssouth, stationtracks] = textread('db/Trainstations.txt', '%s %d %d %d');
+% making a station ID
+global_info.stationnr = containers.Map(global_info.stations, 1:length(global_info.stations));
+% storing number of tracks on a station
 global_info.station_tracks = containers.Map(global_info.stations, stationtracks);
+% storing number of tracks going north
 global_info.tracks_north = containers.Map(global_info.stations, tracksnorth);
+% storing number of tracks going south
 global_info.tracks_south = containers.Map(global_info.stations, tracksnorth);
-global_info.track_lock = containers.Map();
 
 initokensStavanger = 100;%sum(global_info.times_rogaland_south(1, 1:end)~= 0);% ~= 0);
 initokensEgersund = 100;%sum(global_info.times_rogaland_north(1,1:end)~= 0);% ~= 0);
@@ -45,6 +51,16 @@ for i = 1:length(diff),
     dyn.ft = [dyn.ft {strjoin(['NF', global_info.stations(20-i)], '') diff(i)}];
 end;
 
+% generates resorces to lock a train track when in use.
+dyn.re = {};
+for i = 1:length(global_info.stations),
+    if (global_info.tracks_south(char(global_info.stations(i))) == 1),
+        dyn.re = [dyn.re {strjoin(['', global_info.stations(i)], '') 1 inf}];
+    else
+        dyn.re = [dyn.re {strjoin(['NT', global_info.stations(i)], '') 1 inf}];
+        dyn.re = [dyn.re {strjoin(['SF', global_info.stations(i)], '') 1 inf}];
+    end;
+end;
 
 pni = initialdynamics(pns, dyn);
 

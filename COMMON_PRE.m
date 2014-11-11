@@ -16,8 +16,9 @@ direction = char(transition.name(1));
 ctime = current_time();
 station = transition.name(3:end);
 
-locks = global_info.track_lock;
 numOfTracks = global_info.station_tracks(station);
+tracksN = global_info.tracks_north(station);
+tracksS = global_info.tracks_south(station);   
 
 if eq(direction,'S'),% South goning tranitions
   if strcmp(transition.name, 'SFSandnes'),
@@ -30,6 +31,7 @@ if eq(direction,'S'),% South goning tranitions
     % Take only out trains/tokens that is going to South, and sends that token futhre
     tokID = tokenAnyColor(station,1,{'S'});
   end;
+  
 elseif eq(direction,'N'), % South goning tranitions
   % Take only out trains/tokens that is going to North, and sends that token futhre
   tokID = tokenAnyColor(station,1,{'N'});
@@ -41,7 +43,8 @@ if (fire > 0),
     fid = fopen('results/run.txt', 'a');
     fprintf(fid, '%s\t%s\t%s\t%s\n', string_HH_MM_SS(ctime), 'D', direction, station);
     fclose(fid);
-end;
+end;    
+
 % if and(eq(char(transition.name(1)),'N'), fire ~= 0),
 %         disp('#############################');
 %         disp(transition.name);
