@@ -5,7 +5,7 @@
 function [sec] = convert_militery_time(mil, type)
 
 if (type == 1)
-    if (mil > 235959 || mil < 0)
+    if or(mil > 235959, mil < 0)
         sec = -1;
         return; 
     end;
@@ -16,7 +16,7 @@ if (type == 1)
     sec = hour*60*60 + min*60 + sec;
     return;
 elseif(type == 2)
-    if (mil > 2359 || mil < 0)
+    if or(mil > 2359, mil < 0)
         sec = -1;
         return; 
     end;

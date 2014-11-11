@@ -54,7 +54,7 @@ end;
 
 diff = time_diff(global_info.times_rogaland_north(1:end, 1));
 for i = 1:length(diff),
-    dyn.ft = [dyn.ft {strjoin(['NT', global_info.stations(20-i)], '') diff(i)}];
+    dyn.ft = [dyn.ft {strjoin(['NT', global_info.stations(19-i)], '') diff(i)}];
 end;
 
 % generates resorces to lock a train track when in use.
@@ -63,8 +63,8 @@ for i = 1:length(global_info.stations),
     if (global_info.tracks_south(char(global_info.stations(i))) == 1),
         dyn.re = [dyn.re {strjoin(['', global_info.stations(i)], '') 1 inf}];
     else
-        dyn.re = [dyn.re {strjoin(['', global_info.stations(i)], '') 2 inf}];
-        %dyn.re = [dyn.re {strjoin(['SF', global_info.stations(i)], '') 1 inf}];
+        dyn.re = [dyn.re {strjoin(['NT', global_info.stations(i)], '') 1 inf}];
+        dyn.re = [dyn.re {strjoin(['SF', global_info.stations(i)], '') 1 inf}];
     end;
 end;
 
