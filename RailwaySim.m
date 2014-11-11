@@ -78,7 +78,7 @@ pni = initialdynamics(pns, dyn);
 sim = gpensim(pni);
 
 %cotree(pni,1,1);
-prnss(sim);
+%prnss(sim);
 %prnfinalcolors(sim);
 prnschedule(sim);
 plotp(sim, global_info.stations);
