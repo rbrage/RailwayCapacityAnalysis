@@ -27,7 +27,7 @@ end;
 % tracksS = global_info.tracks_south(station);
 
 
-if eq(direction, 'S'),% South goning tranitions
+if strcmp(direction, 'S'),% South goning tranitions
   if strcmp(transition.name, 'SFSandnes'),
     % Take only out trains/tokens that is going to Egersund og Naerbo, and sends that token futhre
     tokID = tokenAnyColor(from_station,1,{'Egersund', 'Naerbo'});
@@ -37,11 +37,21 @@ if eq(direction, 'S'),% South goning tranitions
   else
     % Take only out trains/tokens that is going to South, and sends that token futhre
     tokID = tokenAnyColor(from_station,1,{'S'});
+    if (tokID ~= 0),
+      disp('----------------------------------');
+      transition.name
+      colors = get_color(from_station, tokID) % colors(routenr, 'N' or 'S')
+      routnr = str2num(colors{1});
+    end;
   end;
 
-elseif eq(direction,'N'), % South goning tranitions
+elseif strcmp(direction,'N'), % South goning tranitions
   % Take only out trains/tokens that is going to North, and sends that token futhre
-  tokID = tokenAnyColor(from_station,1,{'N'});
+  tokID = tokenWOAnyColor(from_station,1,{'N'});
+
+  if strcmp(from_station, 'Sandnes'),
+
+  end;
 end;
 
 % if no token is found return
@@ -60,6 +70,7 @@ end;
 time=0;
 colors = get_color(from_station, tokID); % colors(routenr, 'N' or 'S')
 routnr = str2num(colors{1}); % get the routnumber in colors
+
 if eq(direction, 'S'),
     time = global_info.times_rogaland_south(global_info.stationnr(from_station),routnr);
 else

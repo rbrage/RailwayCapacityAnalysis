@@ -34,11 +34,12 @@ end;
 
 
 if ctime >= NTIT-global_info.DELTA_TIME,
-  trainType = 'N';
+  direction = 'N';
+  trainType = 'L';
   %global_info.last_route_traveled_North = routenr + 1;
   stopPlace = 'Stavanger';
-  transition.new_color = {trainType stopPlace num2str(global_info.timeToFireEgersund(ctime))};
-  disp(transition.new_color);
+  transition.new_color = {direction trainType stopPlace num2str(global_info.timeToFireEgersund(ctime))};
+  %disp(transition.new_color);
   fire = 1;
 else
   fire = 0;

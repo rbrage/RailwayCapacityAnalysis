@@ -40,8 +40,10 @@ for i= (length(stations)-1):-1:1,
     %end;
 end;
 
-% disp(png.set_of_Ps);
-% disp(png.set_of_Ts);
+%disp(png.set_of_Ps);
+%disp('...................................')
+%disp(png.set_of_Ts);
+%disp('...................................')
 %disp(png.set_of_As);
 
 disp('PDF created');
