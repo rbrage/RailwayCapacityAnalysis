@@ -18,7 +18,7 @@ png.set_of_As = {'pGenStavanger','tInStavanger', 1, 'tInStavanger', 'StavangerS'
                   'pGenNaerbo','tInNaerbo',1,'tInNaerbo','Naerbo',1,...
                   'pGenEgersund','tInEgersund',1,'tInEgersund','Egersund',1};
 
-              
+
 stations = global_info.stations;
 
 % Dynamically generates train stations and rail connections south bound
@@ -34,9 +34,9 @@ end;
 % Dynamically generates train stations and rail connections north bound
 for i= length(stations):-1:1,
     if i > 1, % length(global_info.stations),
-        png.set_of_Ts = [png.set_of_Ts {strjoin(['NF', stations(i)], '')}];
-        png.set_of_As = [png.set_of_As {strjoin(['', stations(i)], ''), strjoin(['NF', stations(i)], '')} 1 ...
-            {strjoin(['NF', stations(i)], ''), strjoin(['', stations(i-1)], '') 1}];
+        png.set_of_Ts = [png.set_of_Ts {strjoin(['NT', stations(i)], '')}];
+        png.set_of_As = [png.set_of_As {strjoin(['', stations(i)], ''), strjoin(['NT', stations(i)], '')} 1 ...
+            {strjoin(['NT', stations(i)], ''), strjoin(['', stations(i-1)], '') 1}];
     end;
 end;
 

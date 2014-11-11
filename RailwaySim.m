@@ -8,6 +8,12 @@ global global_info; %user data
 fid = fopen('results/run.txt', 'w');
 fprintf(fid, '%s\t%s\t%s\t%s\n', 'Time', 'Type', 'Direction', 'Station');
 fclose(fid);
+fid = fopen('results/run_south.txt', 'w');
+fprintf(fid, '%s\t%s\t%s\t%s\t%s\t%s\t%s\n', 'Time', 'Type', 'Direction', 'Station','Schedule', 'Routnr', 'granted');
+fclose(fid);
+fid = fopen('results/run_north.txt', 'w');
+fprintf(fid, '%s\t%s\t%s\t%s\t%s\t%s\t%s\n', 'Time', 'Type', 'Direction', 'Station','Schedule', 'Routnr', 'granted');
+fclose(fid);
 
 % 24h of simultion
 global_info.START_AT = [04 30 00]; % OPTION: start simulations at 10 AM
@@ -48,7 +54,7 @@ end;
 
 diff = time_diff(global_info.times_rogaland_north(1:end, 1));
 for i = 1:length(diff),
-    dyn.ft = [dyn.ft {strjoin(['NF', global_info.stations(20-i)], '') diff(i)}];
+    dyn.ft = [dyn.ft {strjoin(['NT', global_info.stations(20-i)], '') diff(i)}];
 end;
 
 % generates resorces to lock a train track when in use.
@@ -57,13 +63,16 @@ for i = 1:length(global_info.stations),
     if (global_info.tracks_south(char(global_info.stations(i))) == 1),
         dyn.re = [dyn.re {strjoin(['', global_info.stations(i)], '') 1 inf}];
     else
-        dyn.re = [dyn.re {strjoin(['NT', global_info.stations(i)], '') 1 inf}];
-        dyn.re = [dyn.re {strjoin(['SF', global_info.stations(i)], '') 1 inf}];
+        dyn.re = [dyn.re {strjoin(['', global_info.stations(i)], '') 2 inf}];
+        %dyn.re = [dyn.re {strjoin(['SF', global_info.stations(i)], '') 1 inf}];
     end;
 end;
 
 pni = initialdynamics(pns, dyn);
-
 sim = gpensim(pni);
+
+%cotree(pni,1,1);
 prnss(sim);
+%prnfinalcolors(sim);
+prnschedule(sim);
 plotp(sim, global_info.stations);
