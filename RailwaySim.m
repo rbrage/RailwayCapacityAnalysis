@@ -17,22 +17,30 @@ fclose(fid);
 fid = fopen('results/run_collisions.txt', 'w');
 fprintf(fid, '%s\t%s\t%s\t%s\t%s\t%s\t%s\n', 'Time', 'Type', 'Direction', 'From Station','To Station','Schedule', 'Routnr');
 fclose(fid);
+fid = fopen('results/run_timesN.txt', 'w');
+fprintf(fid, '%s\t%s\t%s\t%s\t%s\t%s\t%s\n', 'Time', 'Type', 'Direction', 'From Station','To Station','Schedule', 'Routnr');
+fclose(fid);
+
 
 % 24h of simultion
 global_info.START_AT = [04 30 00]; % OPTION: start simulations at 10 AM
 global_info.STOP_AT  = [26 59 59]; % OPTION: stop  simulations at 15 AM
 
 global_info.DELTA_TIME = 60;  % delta_T is 1 minutes
-global_info.times_rogaland_south = dlmread('test.txt', '\t', 0, 1); %dlmread('db/Stavanger_Egersund_traintimes.txt', '\t', 0, 1);%
-global_info.times_rogaland_north = dlmread('db/test2.txt', '\t', 0, 1);%dlmread('db/Egersund_Stavanger_traintimes.txt', '\t', 0, 1);%
+global_info.times_rogaland_south = dlmread('db/Stavanger_Egersund_traintimes.txt', '\t', 0, 1);%dlmread('db/test.txt', '\t', 0, 1); %
+global_info.times_rogaland_north = dlmread('db/Egersund_Stavanger_traintimes.txt', '\t', 0, 1);%dlmread('db/test2.txt', '\t', 0, 1);%
 global_info.last_route_traveled_North = 0;
 global_info.last_route_traveled_South = 0;
 
 
-global_info.timeToFireEgersund = containers.Map(convert_militery_time(global_info.times_rogaland_north(1, 1:end),2), 1:size(global_info.times_rogaland_north,2));
-global_info.timeToFireNaerbo = containers.Map(convert_militery_time(global_info.times_rogaland_north(8, 1:end),2), 1:size(global_info.times_rogaland_north,2));
-global_info.timeToFireSandnes = containers.Map(convert_militery_time(global_info.times_rogaland_north(13, 1:end),2), 1:size(global_info.times_rogaland_north,2));
-
+global_info.timeToFireEgersund = containers.Map('KeyType','double','ValueType','double');
+global_info.timeToFireNaerbo = containers.Map('KeyType','double','ValueType','double');
+global_info.timeToFireSandnes = containers.Map('KeyType','double','ValueType','double');
+for i = 1:size(global_info.times_rogaland_north,2),
+    global_info.timeToFireEgersund(convert_militery_time(global_info.times_rogaland_north(1, i),2)) = i;
+    global_info.timeToFireNaerbo(convert_militery_time(global_info.times_rogaland_north(8, i),2)) = i;
+    global_info.timeToFireSandnes(convert_militery_time(global_info.times_rogaland_north(13, i),2)) = i;
+end;
 
 % loads information about the stations
 [global_info.stations, tracksnorth, trackssouth, stationtracks] = textread('db/Trainstations.txt', '%s %d %d %d');
@@ -45,14 +53,9 @@ global_info.tracks_north = containers.Map(global_info.stations, tracksnorth);
 % storing number of tracks going south
 global_info.tracks_south = containers.Map(global_info.stations, tracksnorth);
 
-initokensStavanger = sum(global_info.times_rogaland_south(1, 1:end)~= 0);% ~= 0);
-initokensEgersund = sum(global_info.times_rogaland_north(1,1:end)~= 0);% ~= 0);
-initokensSandnes = sum(global_info.times_rogaland_north(12,1:end)~= 0);% == 0);
-initokensNaerbo = sum(global_info.times_rogaland_north(7,1:end)~= 0);% == 0) - initokensSandnes;
-
 pns = pnstruct('RailwaySim_pdf');
 
-dyn.m0 = {'pGenStavanger', initokensStavanger, 'pGenSandnes', initokensSandnes, 'pGenNaerbo',initokensNaerbo,'pGenEgersund',initokensEgersund};%How many tokens that are in places
+dyn.m0 = {'pGenStavanger', 1,'pGenSandnes', 1, 'pGenNaerbo', 1,'pGenEgersund', 1};%How many tokens that are in places
 
 % Generates train times
 dyn.ft = {'tInStavanger', 1,'tInSandnes', 1,'tInNaerbo',1,'tInEgersund',1 'allothers', 1}; %firering time [hh mm ss]
@@ -82,6 +85,6 @@ sim = gpensim(pni);
 
 %cotree(pni,1,1);
 %prnss(sim);
-%prnfinalcolors(sim);
+prnfinalcolors(sim);
 %prnschedule(sim);
 plotp(sim, global_info.stations);

@@ -24,14 +24,9 @@ if isKey(global_info.timeToFireEgersund,ctime),
   % global_info.timeToFireEgersund(ctime)
 NTIT = convert_militery_time(global_info.times_rogaland_north(1, global_info.timeToFireEgersund(ctime)), 2);
 else
-  NTIT = 0;
-end;
-
-if NTIT == 0,
     fire = 0;
     return;
 end;
-
 
 if ctime >= NTIT-global_info.DELTA_TIME,
   direction = 'N';
@@ -39,6 +34,7 @@ if ctime >= NTIT-global_info.DELTA_TIME,
   %global_info.last_route_traveled_North = routenr + 1;
   stopPlace = 'Stavanger';
   transition.new_color = {direction trainType stopPlace num2str(global_info.timeToFireEgersund(ctime))};
+  transition.override = 1;
   fire = 1;
 else
   fire = 0;

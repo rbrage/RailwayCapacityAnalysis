@@ -19,21 +19,11 @@ if isKey(global_info.timeToFireNaerbo,ctime),
   % disp('Is in map Naerbo');
   % global_info.timeToFireNaerbo(ctime)
   NTIT = convert_militery_time(global_info.times_rogaland_north(8, global_info.timeToFireNaerbo(ctime)), 2);
-  PreviousStation = global_info.times_rogaland_north(7, global_info.timeToFireNaerbo(ctime));
+  if global_info.times_rogaland_north(7, global_info.timeToFireNaerbo(ctime)) ~= -1,
+      fire = 0;
+      return;
+  end;
 else
-  NTIT = 0;
-  PreviousStation = 0;
-end;
-
-%NTIT = convert_militery_time(global_info.times_rogaland_north(8, routenr + 1), 2);
-%PreviousStation = global_info.times_rogaland_north(7, routenr + 1);
-
-if PreviousStation ~= 0,
-    fire = 0;
-    return;
-end;
-
-if NTIT == 0,
     fire = 0;
     return;
 end;
@@ -44,6 +34,7 @@ if ctime >= NTIT-global_info.DELTA_TIME,
 %  global_info.last_route_traveled_North = routenr + 1;
   stopPlace = 'Stavanger';
   transition.new_color = {direction trainType stopPlace num2str(global_info.timeToFireNaerbo(ctime))};
+  transition.override = 1;
   fire = 1;
 else
   fire = 0;
