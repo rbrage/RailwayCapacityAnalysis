@@ -15,5 +15,3 @@ station = transition.name(3:end);
 fid = fopen('results/run.txt', 'a');
 fprintf(fid, '%s\t%s\t%s\t%s\n', string_HH_MM_SS(ctime), 'A', direction, station);
 fclose(fid);
-
-

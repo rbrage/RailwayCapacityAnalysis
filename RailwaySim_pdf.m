@@ -11,12 +11,18 @@ global global_info;
 png.PN_name = 'Railway simulation - Stavanger to Egersund';
 
 % Sets generators
-png.set_of_Ps = {'pGenStavanger', 'pGenSandnes', 'pGenNaerbo','pGenEgersund'};
-png.set_of_Ts = {'tInStavanger','tInSandnes','tInNaerbo', 'tInEgersund'};
+png.set_of_Ps = {'pGenStavanger', 'pGenSandnes', 'pGenNaerbo','pGenEgersund', 'pOutStavangerS','pOutSandnes','pOutNaerbo','pOutEgersund'};
+
+png.set_of_Ts = {'tInStavanger','tInSandnes','tInNaerbo', 'tInEgersund','tOutStavangerS','tOutSandnes','tOutNaerbo','tOutEgersund'};
+
 png.set_of_As = {'pGenStavanger','tInStavanger', 1, 'tInStavanger', 'StavangerS', 1, ...
                   'pGenSandnes','tInSandnes',1, 'tInSandnes','Sandnes',1,...
                   'pGenNaerbo','tInNaerbo',1,'tInNaerbo','Naerbo',1,...
-                  'pGenEgersund','tInEgersund',1,'tInEgersund','Egersund',1};
+                  'pGenEgersund','tInEgersund',1,'tInEgersund','Egersund',1,...
+                  'StavangerS', 'tOutStavangerS', 1, 'tOutStavangerS', 'pOutStavangerS', 1,...
+                  'Sandnes', 'tOutSandnes', 1, 'tOutSandnes', 'pOutSandnes',1,...
+                  'Naerbo', 'tOutNaerbo', 1,'tOutNaerbo','pOutNaerbo',1,...
+                  'Egersund','tOutEgersund',1,'tOutEgersund','pOutEgersund',1};
 
 
 stations = global_info.stations;
@@ -44,7 +50,7 @@ end;
 %disp('...................................')
 %disp(png.set_of_Ts);
 %disp('...................................')
-% disp(png.set_of_As);
+%disp(png.set_of_As);
 
 disp('PDF created');
 

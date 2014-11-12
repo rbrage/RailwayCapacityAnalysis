@@ -44,7 +44,6 @@ if ctime >= NTIT-global_info.DELTA_TIME,
 %  global_info.last_route_traveled_North = routenr + 1;
   stopPlace = 'Stavanger';
   transition.new_color = {direction trainType stopPlace num2str(global_info.timeToFireNaerbo(ctime))};
-  %disp(transition.new_color);
   fire = 1;
 else
   fire = 0;

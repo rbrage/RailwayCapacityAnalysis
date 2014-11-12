@@ -16,4 +16,4 @@ Brusand	1	1	2
 Ogna	1	1	2
 Sirevag	1	1	1
 Hellvik	1	1	2
-Egersund	1	1	4
+Egersund	1	0	4
