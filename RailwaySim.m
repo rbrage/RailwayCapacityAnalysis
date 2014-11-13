@@ -43,7 +43,7 @@ for i = 1:size(global_info.times_rogaland_north,2),
 end;
 
 % loads information about the stations
-[global_info.stations, tracksnorth, trackssouth, stationtracks] = textread('db/Trainstations.txt', '%s %d %d %d');
+[global_info.stations, tracksnorth, trackssouth, stationtracks, time_n, time_s] = textread('db/Trainstations.txt', '%s %d %d %d %d %d');
 % making a station ID
 global_info.stationnr = containers.Map(global_info.stations, 1:length(global_info.stations));
 % storing number of tracks on a station
@@ -59,15 +59,16 @@ dyn.m0 = {'pGenStavanger', 1,'pGenSandnes', 1, 'pGenNaerbo', 1,'pGenEgersund', 1
 
 % Generates train times
 dyn.ft = {'tInStavanger', 1,'tInSandnes', 1,'tInNaerbo',1,'tInEgersund',1 'allothers', 1}; %firering time [hh mm ss]
-diff = time_diff(global_info.times_rogaland_south(1:end, 1));
-for i = 1:length(diff),
-    dyn.ft = [dyn.ft {strjoin(['SF', global_info.stations(i)], '') diff(i)}];
+
+for i = 1:length(time_s)-1,
+    dyn.ft = [dyn.ft {strjoin(['SF', global_info.stations(i)], '') time_s(i)}];
 end;
 
-diff = time_diff(global_info.times_rogaland_north(1:end, 1));
-for i = 1:length(diff),
-    dyn.ft = [dyn.ft {strjoin(['NT', global_info.stations(19-i)], '') diff(i)}];
+for i = 1:length(time_n)-1,
+    dyn.ft = [dyn.ft {strjoin(['NT', global_info.stations(i)], '') time_n(i+1)}];
 end;
+
+disp(dyn.ft);
 
 % generates resorces to lock a train track when in use.
 dyn.re = {};
