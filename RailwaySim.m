@@ -9,16 +9,13 @@ fid = fopen('results/run.txt', 'w');
 fprintf(fid, '%s\t%s\t%s\t%s\n', 'Time', 'Type', 'Direction', 'Station');
 fclose(fid);
 fid = fopen('results/run_south.txt', 'w');
-fprintf(fid, '%s\t%s\t%s\t%s\t%s\t%s\t%s\n', 'Time', 'Type', 'Direction', 'Station','Schedule', 'Routnr', 'granted');
+fprintf(fid, '%s\t%s\t%s\t%s\t%s\t%s\n', 'Time', 'Type', 'Direction', 'Station','Schedule', 'Routnr');
 fclose(fid);
 fid = fopen('results/run_north.txt', 'w');
-fprintf(fid, '%s\t%s\t%s\t%s\t%s\t%s\t%s\n', 'Time', 'Type', 'Direction', 'Station','Schedule', 'Routnr', 'granted');
+fprintf(fid, '%s\t%s\t%s\t%s\t%s\t%s\n', 'Time', 'Type', 'Direction', 'Station','Schedule', 'Routnr');
 fclose(fid);
-fid = fopen('results/run_collisions.txt', 'w');
-fprintf(fid, '%s\t%s\t%s\t%s\t%s\t%s\t%s\n', 'Time', 'Type', 'Direction', 'From Station','To Station','Schedule', 'Routnr');
-fclose(fid);
-fid = fopen('results/run_timesN.txt', 'w');
-fprintf(fid, '%s\t%s\t%s\t%s\t%s\t%s\t%s\n', 'Time', 'Type', 'Direction', 'From Station','To Station','Schedule', 'Routnr');
+fid = fopen('results/delays.txt', 'w');
+fprintf(fid, '%s\t%s\t%s\t%s\t%s\t%s\t%s\n', 'Time', 'Schedule', 'Routnr', 'Type', 'Direction', 'From Station', 'To Station');
 fclose(fid);
 
 
@@ -26,7 +23,7 @@ fclose(fid);
 global_info.START_AT = [04 30 00]; % OPTION: start simulations at 10 AM
 global_info.STOP_AT  = [26 59 59]; % OPTION: stop  simulations at 15 AM
 
-global_info.DELTA_TIME = 60;  % delta_T is 1 minutes
+global_info.DELTA_TIME = 15;  % delta_T is 1 minutes
 global_info.times_rogaland_south = dlmread('db/Stavanger_Egersund_traintimes.txt', '\t', 0, 1);%dlmread('db/test.txt', '\t', 0, 1); %
 global_info.times_rogaland_north = dlmread('db/Egersund_Stavanger_traintimes.txt', '\t', 0, 1);%dlmread('db/test2.txt', '\t', 0, 1);%
 global_info.last_route_traveled_North = 0;
@@ -61,14 +58,14 @@ dyn.m0 = {'pGenStavanger', 1,'pGenSandnes', 1, 'pGenNaerbo', 1,'pGenEgersund', 1
 dyn.ft = {'tInStavanger', 1,'tInSandnes', 1,'tInNaerbo',1,'tInEgersund',1 'allothers', 1}; %firering time [hh mm ss]
 
 for i = 1:length(time_s)-1,
-    dyn.ft = [dyn.ft {strjoin(['SF', global_info.stations(i)], '') time_s(i)}];
+    dyn.ft = [dyn.ft {strjoin(['SF', global_info.stations(i)], '') time_s(i)-1}];
 end;
 
 for i = 1:length(time_n)-1,
-    dyn.ft = [dyn.ft {strjoin(['NT', global_info.stations(i)], '') time_n(i+1)}];
+    dyn.ft = [dyn.ft {strjoin(['NT', global_info.stations(i)], '') time_n(i+1)-1}];
 end;
 
-disp(dyn.ft);
+% disp(dyn.ft);
 
 % generates resorces to lock a train track when in use.
 dyn.re = {};

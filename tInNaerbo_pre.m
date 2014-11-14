@@ -6,7 +6,7 @@ if isempty(global_info.times_rogaland_north),
     fire = 0; return;
 end;
 
-ctime = current_time();
+ctime = current_time()+global_info.DELTA_TIME;
 % routenr = global_info.last_route_traveled_North;
 % maxroutes = size(global_info.times_rogaland_north(8,1:end));
 % if (maxroutes(2) == routenr)
@@ -28,14 +28,9 @@ else
     return;
 end;
 
-if ctime >= NTIT-global_info.DELTA_TIME,
-  direction = 'N';
-  trainType = 'L';
-%  global_info.last_route_traveled_North = routenr + 1;
-  stopPlace = 'Stavanger';
-  transition.new_color = {direction trainType stopPlace num2str(global_info.timeToFireNaerbo(ctime))};
-  transition.override = 1;
-  fire = 1;
-else
-  fire = 0;
-end;
+direction = 'N';
+trainType = 'L';
+stopPlace = 'Stavanger';
+transition.new_color = {direction trainType stopPlace num2str(global_info.timeToFireNaerbo(ctime))};
+transition.override = 1;
+fire = 1;

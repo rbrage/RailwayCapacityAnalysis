@@ -7,7 +7,7 @@ if isempty(global_info.times_rogaland_north),
 
 end;
 
-ctime = current_time();
+ctime = current_time()+global_info.DELTA_TIME;
 % routenr = global_info.last_route_traveled_North;
 % maxroutes = size(global_info.times_rogaland_north(1,1:end));
 %
@@ -17,25 +17,19 @@ ctime = current_time();
 %     return;
 % end;
 %isKey(global_info.timeToFireEgersund,current_clock(1))
-if isKey(global_info.timeToFireEgersund,ctime),
+if not(isKey(global_info.timeToFireEgersund,ctime)),
   % disp('------------------------')
   % string_HH_MM_SS(current_time())
   % disp('Is in map Egersund');
   % global_info.timeToFireEgersund(ctime)
-NTIT = convert_militery_time(global_info.times_rogaland_north(1, global_info.timeToFireEgersund(ctime)), 2);
-else
     fire = 0;
     return;
 end;
 
-if ctime >= NTIT-global_info.DELTA_TIME,
-  direction = 'N';
-  trainType = 'L';
-  %global_info.last_route_traveled_North = routenr + 1;
-  stopPlace = 'Stavanger';
-  transition.new_color = {direction trainType stopPlace num2str(global_info.timeToFireEgersund(ctime))};
-  transition.override = 1;
-  fire = 1;
-else
-  fire = 0;
-end;
+direction = 'N';
+trainType = 'L';
+%global_info.last_route_traveled_North = routenr + 1;
+stopPlace = 'Stavanger';
+transition.new_color = {direction trainType stopPlace num2str(global_info.timeToFireEgersund(ctime))};
+transition.override = 1;
+fire = 1;
