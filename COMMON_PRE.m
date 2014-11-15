@@ -160,7 +160,7 @@ end;
 % timetable.
 if ctime > time,
     fid = fopen('results/delays.txt', 'a');
-    fprintf(fid, '%s\t%s\t%d\t%s\t%s\t%s\t%s\t%s\n', string_HH_MM_SS(ctime), string_HH_MM_SS(time), routnr, train_type, direction, from_station, to_station, transition.name);
+    fprintf(fid, '%s\t%s\t%s\t%s\t%d\t%s\t%s\t%s\n', string_HH_MM_SS(ctime), string_HH_MM_SS(time), direction, train_type, routnr, from_station, to_station, transition.name);
     fclose(fid);
 end;
 
