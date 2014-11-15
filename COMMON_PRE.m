@@ -104,6 +104,9 @@ if eq(direction, 'S'),
     elseif eq(train_type, 'R'),
       row = (global_info.stationnr(from_station));
       time = global_info.times_regional_south(row, routnr);
+    %  if strcmpi(num2str(routnr), '8'),
+    %    disp(['From station: ',from_station,' Routnr: ', num2str(routnr), ' Row: ',num2str(row), ' Time: ', num2str(time), ' ctime: ',string_HH_MM_SS(ctime)]);
+    %  end;
       if time == -2,
         time = floor((floor(ctime/60/60)*100) + (mod((ctime/60),60)));
       end;
