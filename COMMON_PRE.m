@@ -1,14 +1,19 @@
 function [fire, transition] = COMMON_PRE(transition)
 
 global global_info;
-% Check if there is an other prefile to be runned instead.
-if ismember(transition.name, {'tInStavanger','tInSandnes','tInNaerbo','tInEgersund', 'tInKristiansand', 'tOutStavangerS','tOutSandnes','tOutNaerbo','tOutEgersund'}),
+%% Check if there is an other prefile to be runned instead.
+if ismember(transition.name, {'tInStavanger','tInSandnes','tInNaerbo',...
+        'tInEgersund', 'tInKristiansand'}),
     fire = 1;
     return;
 end;
 
+if ismember(transition.name, {'tOutStavangerS','tOutSandnes','tOutNaerbo','tOutEgersund','tOutKristiansand','tOutDrammen'}),
+    [fire, transition] = Out_Selector(transition);
+    return;
+end;
 
-
+%% Finds transition information
 direction = char(transition.name(1));
 ctime = mod(current_time(), 24*60*60);
 station = transition.name(3:end);
@@ -21,7 +26,7 @@ else
     to_station = char(global_info.stations(global_info.stationnr(station) + 1));
 end;
 
-% try to get ownership of the track.
+%% try to get ownership of the track.
 if (global_info.tracks_south(station) == 1),
     granted = request(transition.name, {station,1});
 else
@@ -34,7 +39,7 @@ if not(granted),
     return;
 end;
 
-% Selects a token to travel on the track.
+%% Selects a token to travel on the track.
 [tokens, valid] = tokenAnyColor(from_station, 100, {direction});
 
 if valid == 0,
@@ -86,7 +91,7 @@ if not(tokID),
     return;
 end;
 
-% Sends a freight train to next station.
+%% Sends a freight train to next station.
 if strcmp(train_type, 'F'),
     disp('Only freigth train found, no action built in yet!');
     fire = 0;
@@ -94,10 +99,10 @@ if strcmp(train_type, 'F'),
     return;
 end;
 
+%% Gets the time for the train to leave.
 colors = get_color(from_station, tokID); % colors(routenr, 'N' or 'S')
 routnr = str2num(colors{1}); % get the routnumber in colors
 
-% Gets the time for the train to leave.
 if eq(direction, 'S'),
     if eq(train_type, 'L'),
         time = global_info.times_rogaland_south(global_info.stationnr(from_station),routnr);
@@ -131,7 +136,7 @@ else
     end;
 end;
 
-% processing the time
+%% processing the time
 time = convert_militery_time(time, 2);
 if abs(time - ctime) >= 20*60*60,
     time = time + 24*60*60;
@@ -144,7 +149,7 @@ if time < 0,
     return;
 end;
 
-% Checks if its time to leave acording to the timetable.
+%% Checks if its time to leave acording to the timetable.
 if ctime >= time,
     transition.selected_tokens = tokID;
     fire = tokID;
@@ -154,7 +159,7 @@ else
     return;
 end;
 
-% Logs information if the train is leaving after what was set in the
+%% Logs information if the train is leaving after what was set in the
 % timetable.
 if ctime > time,
     fid = fopen('results/delays.txt', 'a');
@@ -162,7 +167,7 @@ if ctime > time,
     fclose(fid);
 end;
 
-% Writes action to result file
+%% Writes action to result file
 fid = fopen('results/run.txt', 'a');
 fprintf(fid, '%s\t%s\t%s\t%s\t%s\t|%d\n', string_HH_MM_SS(ctime), 'D', direction, station, string_HH_MM_SS(time),routnr);
 fclose(fid);

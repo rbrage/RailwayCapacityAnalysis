@@ -6,6 +6,5 @@ tokID = tokenAnyColor(station,1,station);
 if not(tokID),
     fire = 0;
 else
-    transition.selected_tokens = tokID;
-    fire=1;
+    fire=tokID;
 end;
