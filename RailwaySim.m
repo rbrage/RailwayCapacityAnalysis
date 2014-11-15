@@ -21,9 +21,9 @@ fclose(fid);
 
 % 24h of simultion
 global_info.START_AT = [04 30 00]; % OPTION: start simulations at 10 AM
-global_info.STOP_AT  = [26 59 59]; % OPTION: stop  simulations at 15 AM
+global_info.STOP_AT  = [30 59 59]; % OPTION: stop  simulations at 15 AM
 
-global_info.DELTA_TIME = 15;  % delta_T is 1 minutes
+global_info.DELTA_TIME = 60;  % delta_T is 1 minutes
 global_info.times_rogaland_south = dlmread('db/Stavanger_Egersund_traintimes.txt', '\t', 0, 1);%dlmread('db/test.txt', '\t', 0, 1); %
 global_info.times_rogaland_north = dlmread('db/Egersund_Stavanger_traintimes.txt', '\t', 0, 1);%dlmread('db/test2.txt', '\t', 0, 1);%
 global_info.times_regional_south = dlmread('db/Stavanger_Drammen_traintimes.txt', '\t', 0, 1);
@@ -48,18 +48,19 @@ global_info.timeToFireKristiandsand_South = containers.Map('KeyType','double','V
 global_info.timeToFireOslo = containers.Map('KeyType','double','ValueType','double');
 global_info.timeToFireStavanger_Regional = containers.Map('KeyType','double','ValueType','double');
 global_info.timeToFireMoi = containers.Map('KeyType','double','ValueType','double');
-%Generating train times for regional trains going south
-%for i = 1:size(global_info.times_regional_south,2),
+
+%Generating train times for regional trains going north
+%for i = 1:size(global_info.times_regional_north,2),
 %  global_info.timeToFireOslo(convert_militery_time(global_info.times_regional_south(1, i),2)) = i;
 %  global_info.timeToFireKristiandsand_South(convert_militery_time(global_info.times_regional_south(19, i),2)) = i;
 %end;
 
-%Generating trains for regional trains going north
-%for i = 1:size(global_info.times_regional_north,2),
-%  global_info.timeToFireStavanger_Regional(convert_militery_time(global_info.times_regional_north(1, i),2)) = i;
-%  global_info.timeToFireKristiandsand_North(convert_militery_time(global_info.times_regional_north(1, i),2)) = i;
-%  global_info.timeToFireMoi(convert_militery_time(global_info.times_regional_north(1, i),2)) = i;
-%end;
+%Generating trains for regional trains going south
+for i = 1:size(global_info.times_regional_south,2),
+  global_info.timeToFireStavanger_Regional(convert_militery_time(global_info.times_regional_south(1, i),2)) = i;
+  %global_info.timeToFireKristiandsand_North(convert_militery_time(global_info.times_regional_north(1, i),2)) = i;
+  %global_info.timeToFireMoi(convert_militery_time(global_info.times_regional_north(1, i),2)) = i;
+end;
 
 
 % loads information about the stations

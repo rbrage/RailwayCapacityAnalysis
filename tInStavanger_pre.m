@@ -2,25 +2,29 @@ function [fire, transition] = tInStavanger_pre(transition)
 
 global global_info;
 
-ctime = current_time();
+ctime = current_time()+global_info.DELTA_TIME;
 localroutenr = global_info.last_route_traveled_South;
-
 
 if isempty(global_info.times_rogaland_south) && not(isKey(global_info.timeToFireStavanger_Regional, ctime)),
   fire = 0; return;
 end;
 
 if (isKey(global_info.timeToFireStavanger_Regional, ctime)),
-  direction = 'N';
+  direction = 'S';
   trainType = 'R';
-  global_info.last_Regional_route_traveled_South = regionalroutenr + 1;
-  %if()
-  stopPlace = 'Stavanger';
-  transition.new_color = {direction trainType stopPlace num2str(global_info.timeToFireEgersund(ctime))};
-  transition.override = 1;
-  fire = 1;
 
-else,
+  if global_info.times_regional_south(36, global_info.timeToFireStavanger_Regional(ctime)) == -1,
+    stopPlace = 'Kristiansand';
+  else
+    stopPlace = 'Drammen';
+  end;
+    transition.new_color = {direction trainType stopPlace num2str(global_info.timeToFireStavanger_Regional(ctime))};
+    transition.override = 1;
+    fire = 1;
+    routenr = num2str(global_info.timeToFireStavanger_Regional(ctime));
+    NTIT = ctime;
+else
+  ctime = current_time();
   maxroutes = size(global_info.times_rogaland_south(1,1:end));
   if (maxroutes(2) == localroutenr)
       fire = 0;
@@ -36,7 +40,8 @@ else,
       if (NTIT > -1), break; end;
   end;
 
-  if eq(ctime, NTIT-global_info.DELTA_TIME),
+  NTIT = NTIT-global_info.DELTA_TIME;
+  if eq(ctime, NTIT),
     direction = 'S';
     trainType = 'L';
     global_info.last_route_traveled_South = localroutenr + 1;
@@ -50,8 +55,15 @@ else,
     transition.new_color = {direction trainType stopPlace num2str(localroutenr+1)};
     transition.override = 1;
     fire = 1;
+    routenr = num2str(localroutenr+1);
   else
     fire = 0;
   end;
 
+end;
+
+if fire == 1,
+fid = fopen('results/tGenStavanger.txt', 'a');
+fprintf(fid, '%s\t%s\t%s\t%s\t%s\t%s\t%s\n', string_HH_MM_SS(ctime), 'GENIN', direction, trainType, stopPlace, string_HH_MM_SS(NTIT), routenr);
+fclose(fid);
 end;

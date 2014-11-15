@@ -52,25 +52,25 @@ for i = 1:valid,
     if ismember(from_station, c),
         continue;
     end;
-    
+
     % Looks for a local train. Local trains have the highets priority and
     % this gets picked. By breaking the loop the first local train arraived
-    % will be picked. 
+    % will be picked.
     if ismember('L', c),
         tokID = tokens(i);
         train_type = 'L';
         break;
     end;
-    
+
     % Looks for a regional train. This will owerwrite a freigth train if it
-    % has already found one. 
+    % has already found one.
     if ismember('R', c),
         tokID = tokens(i);
         hasRegional = 1;
         train_type = 'R';
         continue;
     end;
-    
+
     % Looks for a freight train only if it hasn't found any other type yet.
     if ismember('F', c) && not(hasRegional),
         tokID = tokens(i);
@@ -97,20 +97,27 @@ end;
 colors = get_color(from_station, tokID); % colors(routenr, 'N' or 'S')
 routnr = str2num(colors{1}); % get the routnumber in colors
 
-% Gets the time for the train to leave. 
+% Gets the time for the train to leave.
 if eq(direction, 'S'),
     if eq(train_type, 'L'),
         time = global_info.times_rogaland_south(global_info.stationnr(from_station),routnr);
     elseif eq(train_type, 'R'),
-        disp('Found a regional train. No action build in for this yet.');
-    else
+      row = (global_info.stationnr(from_station));
+      time = global_info.times_regional_south(row, routnr);
+      if time == -2,
+        time = floor((floor(ctime/60/60)*100) + (mod((ctime/60),60)));
+      end;
+      else
         error('Unknown train type.');
     end;
 else
     if eq(train_type, 'L'),
-        time = global_info.times_rogaland_north(length(global_info.stations) + 1 - global_info.stationnr(from_station), routnr);
+      time = global_info.times_rogaland_north(size(global_info.times_rogaland_north,1) + 1 - global_info.stationnr(from_station), routnr);
     elseif eq(train_type, 'R'),
-        disp('Found a regional train. No action build in for this yet.');
+      disp('Found a regional train. No action build in for this yet.');
+        if time == -2,
+          time = floor((floor(ctime/60/60)*100) + (mod((ctime/60),60)));
+        end;
     else
         error('Unknown train type.');
     end;
