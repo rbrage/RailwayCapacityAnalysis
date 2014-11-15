@@ -31,7 +31,7 @@ end;
 direction = 'N';
 trainType = 'L';
 %global_info.last_route_traveled_North = routenr + 1;
-stopPlace = 'Stavanger';
+stopPlace = 'StavangerS';
 routenr = num2str(global_info.timeToFireSandnes(ctime));
 transition.new_color = {direction trainType stopPlace routenr};
 transition.override = 1;

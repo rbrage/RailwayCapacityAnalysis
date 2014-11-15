@@ -30,7 +30,7 @@ end;
 
 direction = 'N';
 trainType = 'L';
-stopPlace = 'Stavanger';
+stopPlace = 'StavangerS';
 transition.new_color = {direction trainType stopPlace num2str(global_info.timeToFireNaerbo(ctime))};
 transition.override = 1;
 fire = 1;
