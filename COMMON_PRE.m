@@ -109,9 +109,9 @@ if eq(direction, 'S'),
     elseif eq(train_type, 'R'),
       row = (global_info.stationnr(from_station));
       time = global_info.times_regional_south(row, routnr);
-      if strcmpi(num2str(routnr), '3'),
-        disp(['From station: ',from_station,' Routnr: ', num2str(routnr), ' Row: ',num2str(row), ' Time: ', num2str(time), ' ctime: ',string_HH_MM_SS(ctime)]);
-      end;
+%      if strcmpi(num2str(routnr), '3'),
+%        disp(['From station: ',from_station,' Routnr: ', num2str(routnr), ' Row: ',num2str(row), ' Time: ', num2str(time), ' ctime: ',string_HH_MM_SS(ctime)]);
+%      end;
       if time == -2,
         time = floor((floor(ctime/60/60)*100) + (mod((ctime/60),60)));
       end;
@@ -127,9 +127,9 @@ else
       if time == -2,
         time = floor((floor(ctime/60/60)*100) + (mod((ctime/60),60)));
       end;
-      %if strcmpi(num2str(routnr), '8'),
-      %  disp(['From station: ',from_station,' Routnr: ', num2str(routnr), ' Row: ',num2str(row), ' Time: ', num2str(time), ' ctime: ',string_HH_MM_SS(ctime)]);
-      %end;
+%      if strcmpi(num2str(routnr), '8'),
+%        disp(['From station: ',from_station,' Routnr: ', num2str(routnr), ' Row: ',num2str(row), ' Time: ', num2str(time), ' ctime: ',string_HH_MM_SS(ctime)]);
+%      end;
     else
         error('Unknown train type.');
     end;
@@ -168,16 +168,16 @@ end;
 
 %% Writes action to result file
 fid = fopen('results/run.txt', 'a');
-fprintf(fid, '%s\t%s\t%s\t%s\t%s\t|%d\n', string_HH_MM_SS(ctime), 'D', direction, station, string_HH_MM_SS(time),routnr);
+fprintf(fid, '%s\t%s\t%s\t%s\t%d\t%s\t%s\n', string_HH_MM_SS(ctime), 'D', direction, train_type, routnr, string_HH_MM_SS(time), station);
 fclose(fid);
 if fire == 1,
   if eq(direction,'S'),
     fid = fopen('results/run_south.txt', 'a');
-    fprintf(fid, '%s\t%s\t%s\t%s\t%s\t|%d\n', string_HH_MM_SS(ctime), 'D', direction, station, string_HH_MM_SS(time),routnr);
+    fprintf(fid, '%s\t%s\t%s\t%s\t%d\t%s\t%s\n', string_HH_MM_SS(ctime), 'D', direction, train_type, routnr, string_HH_MM_SS(time), station);
     fclose(fid);
   else
     fid = fopen('results/run_north.txt', 'a');
-    fprintf(fid, '%s\t%s\t%s\t%s\t%s\t|%d\n', string_HH_MM_SS(ctime), 'D', direction, from_station, string_HH_MM_SS(time),routnr);
+    fprintf(fid, '%s\t%s\t%s\t%s\t%d\t%s\t%s\n', string_HH_MM_SS(ctime), 'D', direction, train_type, routnr, string_HH_MM_SS(time), from_station);
     fclose(fid);
   end;
 end;
