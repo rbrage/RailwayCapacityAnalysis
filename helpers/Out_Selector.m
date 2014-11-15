@@ -1,6 +1,6 @@
 function [fire, transition] = Out_Selector(transition)
 
-station = transition.name(5:11);
+station = transition.name(5:end);
 tokID = tokenAnyColor(station,1,station);
 
 if not(tokID),
