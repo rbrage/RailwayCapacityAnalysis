@@ -17,3 +17,6 @@ fclose(fid);
 fid = fopen('results/tGenKristiansand.txt', 'w');
 fprintf(fid, '%s\t%s\t%s\t%s\t%s\t%s\t%s\n', 'Time', 'GENIN', 'Direction', 'TrainType', 'StopPlace','Time', 'Routenr');
 fclose(fid);
+fid = fopen('results/tGenDrammen.txt', 'w');
+fprintf(fid, '%s\t%s\t%s\t%s\t%s\t%s\t%s\n', 'Time', 'GENIN', 'Direction', 'TrainType', 'StopPlace','Time', 'Routenr');
+fclose(fid);

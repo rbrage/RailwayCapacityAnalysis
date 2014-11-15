@@ -3,7 +3,7 @@ function [fire, transition] = COMMON_PRE(transition)
 global global_info;
 %% Check if there is an other prefile to be runned instead.
 if ismember(transition.name, {'tInStavanger','tInSandnes','tInNaerbo',...
-        'tInEgersund', 'tInKristiansand'}),
+        'tInEgersund', 'tInKristiansand', 'tInDrammen'}),
     fire = 1;
     return;
 end;
@@ -109,9 +109,9 @@ if eq(direction, 'S'),
     elseif eq(train_type, 'R'),
       row = (global_info.stationnr(from_station));
       time = global_info.times_regional_south(row, routnr);
-    %  if strcmpi(num2str(routnr), '8'),
-    %    disp(['From station: ',from_station,' Routnr: ', num2str(routnr), ' Row: ',num2str(row), ' Time: ', num2str(time), ' ctime: ',string_HH_MM_SS(ctime)]);
-    %  end;
+      if strcmpi(num2str(routnr), '3'),
+        disp(['From station: ',from_station,' Routnr: ', num2str(routnr), ' Row: ',num2str(row), ' Time: ', num2str(time), ' ctime: ',string_HH_MM_SS(ctime)]);
+      end;
       if time == -2,
         time = floor((floor(ctime/60/60)*100) + (mod((ctime/60),60)));
       end;
@@ -127,10 +127,9 @@ else
       if time == -2,
         time = floor((floor(ctime/60/60)*100) + (mod((ctime/60),60)));
       end;
-      disp(['From station: ',from_station,' Routnr: ', num2str(routnr), ' Row: ',num2str(row), ' Time: ', num2str(time), ' ctime: ',string_HH_MM_SS(ctime)]);
-
-          %if strcmpi(num2str(routnr), '8'),
-          %end;
+      %if strcmpi(num2str(routnr), '8'),
+      %  disp(['From station: ',from_station,' Routnr: ', num2str(routnr), ' Row: ',num2str(row), ' Time: ', num2str(time), ' ctime: ',string_HH_MM_SS(ctime)]);
+      %end;
     else
         error('Unknown train type.');
     end;
