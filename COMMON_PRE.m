@@ -2,7 +2,7 @@ function [fire, transition] = COMMON_PRE(transition)
 
 global global_info;
 % Check if there is an other prefile to be runned instead.
-if ismember(transition.name, {'tInStavanger','tInSandnes','tInNaerbo','tInEgersund', 'tOutStavangerS','tOutSandnes','tOutNaerbo','tOutEgersund'}),
+if ismember(transition.name, {'tInStavanger','tInSandnes','tInNaerbo','tInEgersund', 'tInKristiansand', 'tOutStavangerS','tOutSandnes','tOutNaerbo','tOutEgersund'}),
     fire = 1;
     return;
 end;
@@ -117,10 +117,15 @@ else
     if eq(train_type, 'L'),
       time = global_info.times_rogaland_north(size(global_info.times_rogaland_north,1) + 1 - global_info.stationnr(from_station), routnr);
     elseif eq(train_type, 'R'),
-      disp('Found a regional train. No action build in for this yet.');
-        if time == -2,
-          time = floor((floor(ctime/60/60)*100) + (mod((ctime/60),60)));
-        end;
+      row = (global_info.stationnr(from_station));
+      time = global_info.times_regional_north(row, routnr);
+      if time == -2,
+        time = floor((floor(ctime/60/60)*100) + (mod((ctime/60),60)));
+      end;
+      disp(['From station: ',from_station,' Routnr: ', num2str(routnr), ' Row: ',num2str(row), ' Time: ', num2str(time), ' ctime: ',string_HH_MM_SS(ctime)]);
+  
+          %if strcmpi(num2str(routnr), '8'),
+          %end;
     else
         error('Unknown train type.');
     end;
@@ -142,7 +147,7 @@ end;
 % Checks if its time to leave acording to the timetable.
 if ctime >= time,
     transition.selected_tokens = tokID;
-    fire = 1;
+    fire = tokID;
 else
     fire = 0;
     release(transition.name);
