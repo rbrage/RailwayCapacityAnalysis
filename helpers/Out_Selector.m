@@ -6,5 +6,9 @@ tokID = tokenAnyColor(station,1,station);
 if not(tokID),
     fire = 0;
 else
+    c = get_color(station, tokID);
+%     if ismember(c, 'R'),
+%         disp(c);
+%     end;
     fire=tokID;
 end;

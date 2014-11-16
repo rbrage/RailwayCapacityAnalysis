@@ -7,7 +7,7 @@ global global_info; %user data
 % init result file
 init_results_files();
 
-% 24h of simultion
+% timing of simultion
 global_info.START_AT = [04 30 00]; % OPTION: start simulations at 10 AM
 global_info.STOP_AT  = [30 59 59]; % OPTION: stop  simulations at 15 AM
 
@@ -64,10 +64,10 @@ global_info.tracks_south = containers.Map(global_info.stations, tracksnorth);
 
 pns = pnstruct('RailwaySim_pdf');
 
-dyn.m0 = {'pGenStavanger', 1,'pGenSandnes', 1, 'pGenNaerbo', 1,'pGenEgersund', 1, 'pGenMoi', 1, 'pGenKristiansand', 1, 'pGenDrammen',1};%How many tokens that are in places
+dyn.m0 = {'pGenStavanger', 1,'pGenSandnes', 1, 'pGenNaerbo', 1,'pGenEgersund', 1, 'pGenMoi', 1, 'pGenKristiansand', 1, 'pGenDrammen',1, 'pGenGulskogen', 1, 'pGenGanddal', 1};%How many tokens that are in places
 
 % Generates train times
-dyn.ft = {'tInStavanger', 1,'tInSandnes', 1,'tInNaerbo',1,'tInEgersund',1, 'tInMoi', 1, 'tInKristiansand',1, 'tInDrammen',1, 'allothers', 1}; %firering time [hh mm ss]
+dyn.ft = {'allothers', 1}; %firering time [hh mm ss]
 
 for i = 1:length(time_s)-1,
     dyn.ft = [dyn.ft {strjoin(['SF', global_info.stations(i)], '') time_s(i)-1}];

@@ -3,12 +3,12 @@ function [fire, transition] = COMMON_PRE(transition)
 global global_info;
 %% Check if there is an other prefile to be runned instead.
 if ismember(transition.name, {'tInStavanger','tInSandnes','tInNaerbo',...
-        'tInEgersund', 'tInMoi' 'tInKristiansand', 'tInDrammen'}),
+        'tInEgersund', 'tInMoi' 'tInKristiansand', 'tInDrammen', 'tInGanddal', 'tInGulskogen'}),
     fire = 1;
     return;
 end;
 
-if ismember(transition.name, {'tOutStavangerS','tOutSandnes','tOutNaerbo','tOutEgersund','tOutKristiansand','tOutDrammen'}),
+if ismember(transition.name, {'tOutStavangerS','tOutSandnes','tOutNaerbo','tOutEgersund','tOutKristiansand','tOutDrammen', 'tOutGulskogen', 'tOutGanddal'}),
     [fire, transition] = Out_Selector(transition);
     return;
 end;
@@ -93,9 +93,56 @@ end;
 
 %% Sends a freight train to next station.
 if strcmp(train_type, 'F'),
-    disp('Only freigth train found, no action built in yet!');
-    fire = 0;
-    release(transition.name);
+    ftime = get_firingtime(transition.name);
+    
+    arvtime = ctime + ftime;
+    
+%     if strcmp(direction, 'S'),
+        if global_info.stationnr(from_station) < global_info.stationnr('Egersund'),
+            tmpt = global_info.times_rogaland_south(global_info.stationnr(from_station),1:end);
+            tmp2 = tmpt >= floor((floor(ctime/60/60)*100) + (mod((ctime/60),60))) & tmpt <= floor((floor(arvtime/60/60)*100) + (mod((arvtime/60),60)));
+            if ismember(1, tmp2),
+                disp('Freight train holdback');
+                fire = 0;
+                release(transition.name);
+                return;
+            end;
+        end;
+        
+        row = (global_info.stationnr(from_station));
+        tmpt = global_info.times_regional_south(row, 1:end);
+        tmp2 = tmpt >= floor((floor(ctime/60/60)*100) + (mod((ctime/60),60))) & tmpt <= floor((floor(arvtime/60/60)*100) + (mod((arvtime/60),60)));
+        if ismember(1, tmp2),
+            disp('Freight train holdback');
+            fire = 0;
+            release(transition.name);
+            return;
+        end;
+%     else
+        if global_info.stationnr(from_station) < global_info.stationnr('Egersund'),
+            tmpt = global_info.times_rogaland_north(size(global_info.times_rogaland_north,1) + 1 - global_info.stationnr(from_station), 1:end);
+            tmp2 = tmpt >= floor((floor(ctime/60/60)*100) + (mod((ctime/60),60))) & tmpt <= floor((floor(arvtime/60/60)*100) + (mod((arvtime/60),60)));
+            if ismember(1, tmp2),
+                disp('Freight train holdback');
+                fire = 0;
+                release(transition.name);
+                return;
+            end;
+        end;
+%         end;
+        
+        row = size(global_info.times_regional_north,1) - global_info.stationnr(from_station) + 1;
+        tmpt = global_info.times_regional_north(row, 1:end);
+        tmp2 = tmpt >= floor((floor(ctime/60/60)*100) + (mod((ctime/60),60))) & tmpt <= floor((floor(arvtime/60/60)*100) + (mod((arvtime/60),60)));
+        if ismember(1, tmp2),
+            disp('Freight train holdback');
+            fire = 0;
+            release(transition.name);
+            return;
+        end;
+    
+    disp('Freight train sendt to next station.');
+    fire = tokID;
     return;
 end;
 
@@ -129,9 +176,9 @@ else
     end;
 end;
 
-%if (strcmpi(num2str(routnr), '4') && strcmpi(train_type, 'R') && strcmpi(direction, 'N')),
-%  disp(['From station: ',from_station,' Routnr: ', num2str(routnr), ' Row: ',num2str(row), ' Time: ', num2str(time), ' ctime: ',string_HH_MM_SS(ctime)]);
-%end;
+if (strcmpi(num2str(routnr), '5') && strcmpi(train_type, 'R') && strcmpi(direction, 'N')),
+ disp(['From station: ',from_station,' Routnr: ', num2str(routnr), ' Row: ',num2str(row), ' Time: ', num2str(time), ' ctime: ',string_HH_MM_SS(ctime)]);
+end;
 
 %% processing the time
 time = convert_militery_time(time, 2);
