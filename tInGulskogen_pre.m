@@ -2,6 +2,11 @@ function [fire, transition] = tInGulskogen_pre(transition)
 
 global global_info;
 
+if not(mod(current_time(), global_info.freight_generation_delay) == 0),
+    fire = 0;
+        return;
+end;
+
 place = get_place('Gulskogen');
 
 direction = 'N';

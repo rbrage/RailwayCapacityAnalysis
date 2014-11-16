@@ -12,6 +12,7 @@ global_info.START_AT = [04 30 00]; % OPTION: start simulations at 10 AM
 global_info.STOP_AT  = [30 59 59]; % OPTION: stop  simulations at 15 AM
 
 global_info.DELTA_TIME = 60;  % delta_T is 1 minutes
+global_info.freight_generation_delay = 3.5*60*60;
 global_info.times_rogaland_south = dlmread('db/Stavanger_Egersund_traintimes.txt', '\t', 0, 1);%dlmread('db/test.txt', '\t', 0, 1); %
 global_info.times_rogaland_north = dlmread('db/Egersund_Stavanger_traintimes.txt', '\t', 0, 1);%dlmread('db/test2.txt', '\t', 0, 1);%
 global_info.times_regional_south = dlmread('db/Stavanger_Drammen_traintimes.txt', '\t', 0, 1);
