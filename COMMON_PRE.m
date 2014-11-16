@@ -168,7 +168,6 @@ end;
 fid = fopen('results/run.txt', 'a');
 fprintf(fid, '%s\t%s\t%s\t%s\t%d\t%s\t%s\n', string_HH_MM_SS(ctime), 'D', direction, train_type, routnr, string_HH_MM_SS(time), station);
 fclose(fid);
-if fire == 1,
   if eq(direction,'S'),
     fid = fopen('results/run_south.txt', 'a');
     fprintf(fid, '%s\t%s\t%s\t%s\t%d\t%s\t%s\n', string_HH_MM_SS(ctime), 'D', direction, train_type, routnr, string_HH_MM_SS(time), station);
@@ -177,5 +176,4 @@ if fire == 1,
     fid = fopen('results/run_north.txt', 'a');
     fprintf(fid, '%s\t%s\t%s\t%s\t%d\t%s\t%s\n', string_HH_MM_SS(ctime), 'D', direction, train_type, routnr, string_HH_MM_SS(time), from_station);
     fclose(fid);
-  end;
 end;
