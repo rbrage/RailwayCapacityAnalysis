@@ -28,7 +28,7 @@ elseif isKey(global_info.timeToFireKristiandsand_North,ctime),
   if global_info.times_regional_north(global_info.stationnr('Kristiansand')+2, global_info.timeToFireKristiandsand_North(ctime)) == -1,
     direction = 'N';
     trainType = 'R';
-    stopPlace = 'Stavanger';
+    stopPlace = 'StavangerS';
     routenr = num2str(global_info.timeToFireKristiandsand_North(ctime));
     transition.new_color = {direction trainType stopPlace num2str(global_info.timeToFireKristiandsand_North(ctime))};
     transition.override = 1;

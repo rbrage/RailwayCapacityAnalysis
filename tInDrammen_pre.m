@@ -20,7 +20,7 @@ if isKey(global_info.timeToFireDrammen,ctime),
   else
     direction = 'N';
     trainType = 'R';
-    stopPlace = 'Stavanger';
+    stopPlace = 'StavangerS';
     routenr = num2str(global_info.timeToFireDrammen(ctime));
     transition.new_color = {direction trainType stopPlace num2str(global_info.timeToFireDrammen(ctime))};
     transition.override = 1;
