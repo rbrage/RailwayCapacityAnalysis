@@ -13,7 +13,7 @@ end;
 direction = char(transition.name(1));
 ctime = mod(current_time(), 24*60*60);
 station = transition.name(3:end);
-disp(station);
+
 if eq(direction, 'N'),
     from_station = char(global_info.stations(global_info.stationnr(station) + 1));
     to_station = char(station);
