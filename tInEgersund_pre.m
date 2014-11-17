@@ -7,7 +7,7 @@ if isempty(global_info.times_rogaland_north),
 
 end;
 
-ctime = current_time()+global_info.DELTA_TIME;
+ctime = global_info.ctime+global_info.DELTA_TIME;
 if not(isKey(global_info.timeToFireEgersund,ctime)),
     fire = 0;
     return;

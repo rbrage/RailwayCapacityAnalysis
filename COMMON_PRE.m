@@ -2,6 +2,7 @@ function [fire, transition] = COMMON_PRE(transition)
 
 global global_info;
 waitbar(current_time() / global_info.STOP_se);
+global_info.ctime = current_time(); %mod(current_time(), 24*60*60);
 
 %% Check if there is an other prefile to be runned instead.
 if eq(transition.name(1:3), 'tIn'),
@@ -97,7 +98,7 @@ if strcmp(train_type, 'F'),
 
     ftime = get_firingtime(transition.name);
     arvtime = ctime + ftime+60;
-    
+
     if strcmp(direction, 'S'),
         nstation = from_station;
         sstation = to_station;
@@ -116,7 +117,7 @@ if strcmp(train_type, 'F'),
             return;
         end;
     end;
-    
+
     row = (global_info.stationnr(nstation));
     tmpt = global_info.times_regional_south(row, 1:end);
     tmp2 = tmpt >= floor((floor(ctime/60/60)*100) + (mod((ctime/60),60))) & tmpt <= floor((floor(arvtime/60/60)*100) + (mod((arvtime/60),60)));
@@ -125,7 +126,7 @@ if strcmp(train_type, 'F'),
         release(transition.name);
         return;
     end;
-    
+
     if global_info.stationnr(sstation) < global_info.stationnr('Egersund'),
         tmpt = global_info.times_rogaland_north(size(global_info.times_rogaland_north,1) + 1 - global_info.stationnr(sstation), 1:end);
         tmp2 = tmpt >= floor((floor(ctime/60/60)*100) + (mod((ctime/60),60))) & tmpt <= floor((floor(arvtime/60/60)*100) + (mod((arvtime/60),60)));
@@ -135,7 +136,7 @@ if strcmp(train_type, 'F'),
             return;
         end;
     end;
-    
+
     row = size(global_info.times_regional_north,1) - global_info.stationnr(sstation) + 1;
     tmpt = global_info.times_regional_north(row, 1:end);
     tmp2 = tmpt >= floor((floor(ctime/60/60)*100) + (mod((ctime/60),60))) & tmpt <= floor((floor(arvtime/60/60)*100) + (mod((arvtime/60),60)));
@@ -144,7 +145,7 @@ if strcmp(train_type, 'F'),
         release(transition.name);
         return;
     end;
-    
+
     transition.selected_tokens = tokID;
     fire = (tokID);
     return;

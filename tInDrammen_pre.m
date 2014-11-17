@@ -2,7 +2,7 @@ function [fire, transition] = tInDrammen_pre(transition)
 
 global global_info;
 
-ctime = current_time()+global_info.DELTA_TIME;
+ctime = global_info.ctime+global_info.DELTA_TIME;
 
 if not(isKey(global_info.timeToFireDrammen,ctime)),
   fire = 0; return;

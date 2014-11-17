@@ -5,7 +5,7 @@ global global_info;
 direction = 'N';
 trainType = 'F';
 stopPlace = 'Gulskogen';
-ctime = current_time();
+ctime = global_info.ctime;
 
 
 mtime = floor((floor(ctime/60/60)*100) + (mod((ctime/60),60)));
@@ -15,7 +15,7 @@ if ismember(num2str(mtime), global_info.freight_generation_gulskogen),
     if size(pos) ~= 1,
         error('There is an error in the times generating the freight trains');
     end;
-    
+
     stopPlace = strjoin(global_info.freight_generation_gulskogen(pos + 1), '');
 else
     fire = 0;

@@ -2,7 +2,7 @@ function [fire, transition] = tInMoi_pre(transition)
 
 global global_info;
 
-ctime = current_time()+global_info.DELTA_TIME;
+ctime = global_info.ctime+global_info.DELTA_TIME;
 
 if not(isKey(global_info.timeToFireMoi,ctime)),
   fire = 0; return;

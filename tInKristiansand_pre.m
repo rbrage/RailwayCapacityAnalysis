@@ -2,7 +2,7 @@ function [fire, transition] = tInKristiansand_pre(transition)
 
 global global_info;
 
-ctime = current_time()+global_info.DELTA_TIME;
+ctime = global_info.ctime+global_info.DELTA_TIME;
 
 if not(isKey(global_info.timeToFireKristiandsand_South,ctime)) && not(isKey(global_info.timeToFireKristiandsand_North, ctime)),
   fire = 0; return;

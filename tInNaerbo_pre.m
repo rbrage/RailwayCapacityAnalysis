@@ -6,7 +6,7 @@ if isempty(global_info.times_rogaland_north),
     fire = 0; return;
 end;
 
-ctime = current_time()+global_info.DELTA_TIME;
+ctime = global_info.ctime+global_info.DELTA_TIME;
 % routenr = global_info.last_route_traveled_North;
 % maxroutes = size(global_info.times_rogaland_north(8,1:end));
 % if (maxroutes(2) == routenr)
