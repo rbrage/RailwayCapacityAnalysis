@@ -2,14 +2,12 @@ function [fire, transition] = COMMON_PRE(transition)
 
 global global_info;
 %% Check if there is an other prefile to be runned instead.
-if ismember(transition.name, {'tInStavanger','tInSandnes','tInNaerbo','tInEgersund',...
-                              'tInMoi' 'tInKristiansand', 'tInDrammen', 'tInGanddal', 'tInGulskogen'}),
+if eq(transition.name(1:3), 'tIn'),
     fire = 1;
     return;
 end;
 
-if ismember(transition.name, {'tOutStavangerS','tOutSandnes','tOutNaerbo','tOutEgersund',...
-                              'tOutKristiansand','tOutDrammen', 'tOutGulskogen', 'tOutGanddal'}),
+if eq(transition.name(1:4), 'tOut'),
     [fire, transition] = Out_Selector(transition);
     return;
 end;
@@ -94,9 +92,7 @@ end;
 
 %% Sends a freight train to next station.
 if strcmp(train_type, 'F'),
-    fire = 0;
-    release(transition.name);
-    return;
+    
     
     ftime = get_firingtime(transition.name);
 
@@ -181,9 +177,9 @@ else
     end;
 end;
 
-if (strcmpi(num2str(routnr), '1') && strcmpi(train_type, 'R') && strcmpi(direction, 'N')),
-disp(['From station: ',from_station,' Routnr: ', num2str(routnr), ' Row: ',num2str(row), ' Time: ', num2str(time), ' ctime: ',string_HH_MM_SS(ctime)]);
-end;
+% if (strcmpi(num2str(routnr), '1') && strcmpi(train_type, 'R') && strcmpi(direction, 'N')),
+% disp(['From station: ',from_station,' Routnr: ', num2str(routnr), ' Row: ',num2str(row), ' Time: ', num2str(time), ' ctime: ',string_HH_MM_SS(ctime)]);
+% end;
 
 %% processing the time
 time = convert_militery_time(time, 2);

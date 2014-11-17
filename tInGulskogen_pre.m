@@ -2,25 +2,24 @@ function [fire, transition] = tInGulskogen_pre(transition)
 
 global global_info;
 
-if not(mod(current_time(), global_info.freight_generation_delay) == 0),
-    fire = 0;
-        return;
-end;
-
-place = get_place('Gulskogen');
-
 direction = 'N';
 trainType = 'F';
-stopPlace = 'Ganddal';
+stopPlace = 'Gulskogen';
 ctime = current_time();
 
-token_bank = place.token_bank;
 
-for i = token_bank,
-    if ismember('F', i.color),
-        fire = 0;
-        return;
+mtime = floor((floor(ctime/60/60)*100) + (mod((ctime/60),60)));
+
+if ismember(num2str(mtime), global_info.freight_generation_gulskogen),
+    pos = find(strcmp(global_info.freight_generation_gulskogen, num2str(mtime)));
+    if size(pos) ~= 1,
+        error('There is an error in the times generating the freight trains');
     end;
+    
+    stopPlace = strjoin(global_info.freight_generation_gulskogen(pos + 1), '');
+else
+    fire = 0;
+    return;
 end;
 
 transition.new_color = {direction trainType stopPlace};

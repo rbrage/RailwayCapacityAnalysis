@@ -2,45 +2,24 @@ function [fire, transition] = tInGanddal_pre(transition)
 
 global global_info;
 
-if not(mod(current_time(), global_info.freight_generation_delay) == 0),
-    fire = 0;
-        return;
-end;
-
-place = get_place('Ganddal');
-before = get_place('Sandnes');
-front = get_place('Oksnavadporten');
-
 direction = 'S';
 trainType = 'F';
-stopPlace = 'Gulskogen';
+stopPlace = 'Ganddal';
 ctime = current_time();
 
-token_bank = place.token_bank;
-token_bank_before = before.token_bank;
-token_bank_front = front.token_bank;
 
-for i = token_bank,
-    if ismember('F', i.color),
-        fire = 0;
-        return;
+mtime = floor((floor(ctime/60/60)*100) + (mod((ctime/60),60)));
+
+if ismember(num2str(mtime), global_info.freight_generation_ganddal),
+    pos = find(strcmp(global_info.freight_generation_ganddal, num2str(mtime)));
+    if size(pos) ~= 1,
+        error('There is an error in the times generating the freight trains');
     end;
-end;
-for i = token_bank_before,
-  disp(ismember({'R','L'}, i.color));
-    if ismember({'R','L'}, i.color),
-      disp(['Station before: ', before, 'has colors: ', i.color]);
-        fire = 0;
-        return;
-    end;
-end;
-for i = token_bank_front,
-  disp(ismember({'R','L'}, i.color));
-    if ismember({'R','L'}, i.color),
-        disp(['Station front: ', front, 'has colors: ', i.color]);
-        fire = 0;
-        return;
-    end;
+    
+    stopPlace = strjoin(global_info.freight_generation_ganddal(pos + 1), '');
+else
+    fire = 0;
+    return;
 end;
 
 transition.new_color = {direction trainType stopPlace};
