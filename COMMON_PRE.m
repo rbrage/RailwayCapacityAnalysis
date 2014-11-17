@@ -2,7 +2,7 @@ function [fire, transition] = COMMON_PRE(transition)
 
 global global_info;
 waitbar(current_time() / global_info.STOP_se);
-global_info.ctime = current_time(); %mod(current_time(), 24*60*60);
+global_info.ctime = mod(current_time(), 24*60*60);% current_time(); %
 
 %% Check if there is an other prefile to be runned instead.
 if eq(transition.name(1:3), 'tIn'),

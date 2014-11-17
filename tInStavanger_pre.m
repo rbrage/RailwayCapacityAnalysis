@@ -26,13 +26,10 @@ if(isKey(global_info.timesToFireStavanger_Local, ctime)),
 elseif (isKey(global_info.timeToFireStavanger_Regional, ctime)),
   direction = 'S';
   trainType = 'R';
-  disp('Fire Regional from Stavanger');
   if global_info.times_regional_south(36, global_info.timeToFireStavanger_Regional(ctime)) == -1,
     stopPlace = 'Kristiansand';
-    disp('Kristansand')
   else
     stopPlace = 'Drammen';
-    disp('Drammen')
   end;
     transition.new_color = {direction trainType stopPlace num2str(global_info.timeToFireStavanger_Regional(ctime))};
     transition.override = 1;

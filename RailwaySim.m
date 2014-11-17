@@ -9,14 +9,15 @@ init_results_files();
 h = waitbar(0,'Please wait...');
 global_info.ctime = 0;
 % timing of simultion
-global_info.START_AT = [04 30 00]; % OPTION: start simulations at 10 AM
-global_info.STOP_AT  = [30 59 00]; % OPTION: stop  simulations at 15 AM
+global_info.START_AT = [00 00 00]; % OPTION: start simulations at 10 AM
+global_info.STOP_AT  = [48 00 00]; % OPTION: stop  simulations at 15 AM
 s = [num2str(global_info.STOP_AT(1)),'', num2str(global_info.STOP_AT(2))];
 global_info.STOP_se = floor(str2num(s)/100)*60*60 + (mod((str2num(s)/60),60));
 
 
 global_info.DELTA_TIME = 60;  % delta_T is 1 minutes
 global_info.freight_generation_delay = 60*60*12;
+
 global_info.freight_generation_ganddal = {'334', 'Kristiansand', '820', ...
     'Kristiansand', '922', 'Kristiansand', '1052', 'Kristiansand', '1332', ...
     'Kristiansand', '1723', 'Kristiansand', '1822', 'Kristiansand', ...
@@ -24,6 +25,7 @@ global_info.freight_generation_ganddal = {'334', 'Kristiansand', '820', ...
 global_info.freight_generation_gulskogen = {'22', 'Neslandsvatn', '941', ...
     'Neslandsvatn', '1223', 'Kristiansand', '1523', 'Neslandsvatn', ...
     '2039', 'Kristiansand', '2112', 'Neslandsvatn', '2155', 'Kristiansand', '2222', 'Neslandsvatn'};
+
 global_info.times_rogaland_south = dlmread('db/Stavanger_Egersund_traintimes.txt', '\t', 0, 1);%dlmread('db/test.txt', '\t', 0, 1); %
 global_info.times_rogaland_north = dlmread('db/Egersund_Stavanger_traintimes.txt', '\t', 0, 1);%dlmread('db/test2.txt', '\t', 0, 1);%
 global_info.times_regional_south = dlmread('db/Stavanger_Drammen_traintimes.txt', '\t', 0, 1);
