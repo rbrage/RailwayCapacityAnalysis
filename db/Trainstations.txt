@@ -5,7 +5,7 @@ Jattavagen	2	2	2	180	120
 Gausel	2	2	2	120	240
 SandnesS	2	2	2	240	60
 Sandnes	2	1	9	60	120
-Ganddal	1	1	2	120	120
+Ganddal	1	1	3	120	120
 Oksnavadporten	1	1	1	120	120
 Klepp	1	1	3	120	180
 Bryne	1	1	2	180	240
