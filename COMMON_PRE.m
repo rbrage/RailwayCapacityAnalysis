@@ -1,6 +1,8 @@
 function [fire, transition] = COMMON_PRE(transition)
 
 global global_info;
+waitbar(current_time() / global_info.STOP_se);
+
 %% Check if there is an other prefile to be runned instead.
 if eq(transition.name(1:3), 'tIn'),
     fire = 1;
@@ -92,8 +94,6 @@ end;
 
 %% Sends a freight train to next station.
 if strcmp(train_type, 'F'),
-    
-    
     ftime = get_firingtime(transition.name);
 
     arvtime = ctime + ftime;

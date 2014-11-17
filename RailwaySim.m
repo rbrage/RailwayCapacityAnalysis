@@ -6,10 +6,15 @@ global global_info; %user data
 
 % init result file
 init_results_files();
+h = waitbar(0,'Please wait...');
 
 % timing of simultion
 global_info.START_AT = [04 30 00]; % OPTION: start simulations at 10 AM
-global_info.STOP_AT  = [30 59 59]; % OPTION: stop  simulations at 15 AM
+global_info.STOP_AT  = [30 59 00]; % OPTION: stop  simulations at 15 AM
+s = [num2str(global_info.STOP_AT(1)),'', num2str(global_info.STOP_AT(2))];
+global_info.STOP_se = floor(str2num(s)/100)*60*60 + (mod((str2num(s)/60),60));
+
+
 
 global_info.DELTA_TIME = 60;  % delta_T is 1 minutes
 global_info.freight_generation_delay = 60*60*12;
@@ -106,3 +111,4 @@ sim = gpensim(pni);
 prnfinalcolors(sim);
 %prnschedule(sim);
 plotp(sim, global_info.stations);
+close(h);
