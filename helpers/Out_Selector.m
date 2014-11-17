@@ -10,5 +10,6 @@ else
 %     if ismember(c, 'R'),
 %         disp(c);
 %     end;
+    transition.selected_tokens = tokID;
     fire=tokID;
 end;
