@@ -94,56 +94,59 @@ end;
 
 %% Sends a freight train to next station.
 if strcmp(train_type, 'F'),
+
     ftime = get_firingtime(transition.name);
+    arvtime = ctime + ftime+60;
+    
+    if strcmp(direction, 'S'),
+        nstation = from_station;
+        sstation = to_station;
+    else
+        nstation = to_station;
+        sstation = from_station;
+    end;
 
-    arvtime = ctime + ftime;
-
-     if strcmp(direction, 'S'),
-        if global_info.stationnr(from_station) < global_info.stationnr('Egersund'),
-            tmpt = global_info.times_rogaland_south(global_info.stationnr(from_station),1:end);
-            tmp2 = tmpt >= floor((floor(ctime/60/60)*100) + (mod((ctime/60),60))) & tmpt <= floor((floor(arvtime/60/60)*100) + (mod((arvtime/60),60)));
-            if ismember(1, tmp2),
-              %  disp('Freight train holdback');
-                fire = 0;
-                release(transition.name);
-                return;
-            end;
-        end;
-
-        row = (global_info.stationnr(from_station));
-        tmpt = global_info.times_regional_south(row, 1:end);
+    % Checks if there the track is reseved by a high priority train.
+    if global_info.stationnr(nstation) < global_info.stationnr('Egersund'),
+        tmpt = global_info.times_rogaland_south(global_info.stationnr(nstation),1:end);
         tmp2 = tmpt >= floor((floor(ctime/60/60)*100) + (mod((ctime/60),60))) & tmpt <= floor((floor(arvtime/60/60)*100) + (mod((arvtime/60),60)));
         if ismember(1, tmp2),
-          %  disp('Freight train holdback');
             fire = 0;
             release(transition.name);
             return;
         end;
-     else
-        if global_info.stationnr(from_station) < global_info.stationnr('Egersund'),
-            tmpt = global_info.times_rogaland_north(size(global_info.times_rogaland_north,1) + 1 - global_info.stationnr(from_station), 1:end);
-            tmp2 = tmpt >= floor((floor(ctime/60/60)*100) + (mod((ctime/60),60))) & tmpt <= floor((floor(arvtime/60/60)*100) + (mod((arvtime/60),60)));
-            if ismember(1, tmp2),
-              %  disp('Freight train holdback');
-                fire = 0;
-                release(transition.name);
-                return;
-            end;
-        end;
-      end;
-
-        row = size(global_info.times_regional_north,1) - global_info.stationnr(from_station) + 1;
-        tmpt = global_info.times_regional_north(row, 1:end);
+    end;
+    
+    row = (global_info.stationnr(nstation));
+    tmpt = global_info.times_regional_south(row, 1:end);
+    tmp2 = tmpt >= floor((floor(ctime/60/60)*100) + (mod((ctime/60),60))) & tmpt <= floor((floor(arvtime/60/60)*100) + (mod((arvtime/60),60)));
+    if ismember(1, tmp2),
+        fire = 0;
+        release(transition.name);
+        return;
+    end;
+    
+    if global_info.stationnr(sstation) < global_info.stationnr('Egersund'),
+        tmpt = global_info.times_rogaland_north(size(global_info.times_rogaland_north,1) + 1 - global_info.stationnr(sstation), 1:end);
         tmp2 = tmpt >= floor((floor(ctime/60/60)*100) + (mod((ctime/60),60))) & tmpt <= floor((floor(arvtime/60/60)*100) + (mod((arvtime/60),60)));
         if ismember(1, tmp2),
-            %disp('Freight train holdback');
             fire = 0;
             release(transition.name);
             return;
         end;
-
-    %disp('Freight train sendt to next station.');
-    fire = tokID;
+    end;
+    
+    row = size(global_info.times_regional_north,1) - global_info.stationnr(sstation) + 1;
+    tmpt = global_info.times_regional_north(row, 1:end);
+    tmp2 = tmpt >= floor((floor(ctime/60/60)*100) + (mod((ctime/60),60))) & tmpt <= floor((floor(arvtime/60/60)*100) + (mod((arvtime/60),60)));
+    if ismember(1, tmp2),
+        fire = 0;
+        release(transition.name);
+        return;
+    end;
+    
+    transition.selected_tokens = tokID;
+    fire = (tokID);
     return;
 end;
 
@@ -197,8 +200,7 @@ end;
 %% Checks if its time to leave acording to the timetable.
 if ctime >= time,
     transition.selected_tokens = tokID;
-    fire = tokID;
-
+    fire = (tokID);
 else
     fire = 0;
     release(transition.name);
