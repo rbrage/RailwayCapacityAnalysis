@@ -1,6 +1,8 @@
 function [fire, transition] = COMMON_PRE(transition)
 
 global global_info;
+waitbar(current_time() / global_info.STOP_se);
+
 %% Check if there is an other prefile to be runned instead.
 if ismember(transition.name, {'tInStavanger','tInSandnes','tInNaerbo','tInEgersund',...
                               'tInMoi' 'tInKristiansand', 'tInDrammen', 'tInGanddal', 'tInGulskogen'}),
@@ -97,7 +99,7 @@ if strcmp(train_type, 'F'),
     fire = 0;
     release(transition.name);
     return;
-    
+
     ftime = get_firingtime(transition.name);
 
     arvtime = ctime + ftime;
@@ -181,9 +183,9 @@ else
     end;
 end;
 
-if (strcmpi(num2str(routnr), '1') && strcmpi(train_type, 'R') && strcmpi(direction, 'N')),
-disp(['From station: ',from_station,' Routnr: ', num2str(routnr), ' Row: ',num2str(row), ' Time: ', num2str(time), ' ctime: ',string_HH_MM_SS(ctime)]);
-end;
+%if (strcmpi(num2str(routnr), '6') && strcmpi(train_type, 'R') && strcmpi(direction, 'N')),
+%  disp(['From station: ',from_station,' Routnr: ', num2str(routnr), ' Row: ',num2str(row), ' Time: ', num2str(time), ' ctime: ',string_HH_MM_SS(ctime)]);
+%end;
 
 %% processing the time
 time = convert_militery_time(time, 2);
