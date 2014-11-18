@@ -6,13 +6,12 @@ global global_info; %user data
 
 % init result file
 init_results_files();
-h = waitbar(0,'Please wait...');
+h = waitbar(0,'The trains are leaving. Toooot Toooot!');
 global_info.ctime = 0;
 % timing of simultion
 global_info.START_AT = [00 00 00]; % OPTION: start simulations at 10 AM
 global_info.STOP_AT  = [48 00 00]; % OPTION: stop  simulations at 15 AM
-s = [num2str(global_info.STOP_AT(1)),'', num2str(global_info.STOP_AT(2))];
-global_info.STOP_se = floor(str2num(s)/100)*60*60 + (mod((str2num(s)/60),60));
+global_info.STOP_se = global_info.STOP_AT(1)*60*60 + global_info.STOP_AT(2)*60;
 
 
 global_info.DELTA_TIME = 60;  % delta_T is 1 minutes
@@ -21,10 +20,11 @@ global_info.freight_generation_delay = 60*60*12;
 global_info.freight_generation_ganddal = {'334', 'Kristiansand', '820', ...
     'Kristiansand', '922', 'Kristiansand', '1052', 'Kristiansand', '1332', ...
     'Kristiansand', '1723', 'Kristiansand', '1822', 'Kristiansand', ...
-    '2022', 'Kristiansand'};
-global_info.freight_generation_gulskogen = {'22', 'Neslandsvatn', '941', ...
-    'Neslandsvatn', '1223', 'Kristiansand', '1523', 'Neslandsvatn', ...
-    '2039', 'Kristiansand', '2112', 'Neslandsvatn', '2155', 'Kristiansand', '2222', 'Neslandsvatn'};
+    '2022', 'Kristiansand'}; % ,'1922', 'Gulskogen','1622', 'Gulskogen','1652', 'Gulskogen','1422', 'Gulskogen','1522', 'Gulskogen','1222', 'Gulskogen','1302', 'Gulskogen','1500', 'Gulskogen', '1600', 'Gulskogen', '1700', 'Gulskogen'};
+global_info.freight_generation_gulskogen = {'22', 'Ganddal', '941', ...
+    'Ganddal', '1223', 'Ganddal', '1523', 'Ganddal', ...
+    '2039', 'Ganddal', '2112', 'Ganddal', '2155', 'Ganddal',...
+    '2222', 'Ganddal'}; %, '0222', 'StavangerS', '0432', 'Neslandsvatn','1532', 'Ganddal', '1432', 'Ganddal', '1332', 'Ganddal','1200', 'Ganddal', '1405', 'Ganddal', '1305', 'Ganddal', '1135', 'Ganddal'};
 
 global_info.times_rogaland_south = dlmread('db/Stavanger_Egersund_traintimes.txt', '\t', 0, 1);%dlmread('db/test.txt', '\t', 0, 1); %
 global_info.times_rogaland_north = dlmread('db/Egersund_Stavanger_traintimes.txt', '\t', 0, 1);%dlmread('db/test2.txt', '\t', 0, 1);%
