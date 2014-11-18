@@ -8,7 +8,7 @@ release(transition.name);
 %% filters non processable transitions
 if ismember(transition.name, {'tInStavanger','tInSandnes','tInNaerbo',...
         'tInEgersund', 'tInMoi', 'tInKristiansand', 'tInDrammen','tOutStavangerS',...
-        'tOutSandnes','tOutNaerbo','tOutEgersund','tOutKristiansand','tOutDrammen', 'tInGanddal', 'tInGulskogen', 'tOutGulskogen', 'tOutGanddal'}),
+        'tOutSandnes','tOutNaerbo','tOutEgersund','tOutKristiansand','tOutDrammen', 'tInGanddal', 'tInGulskogen', 'tOutGulskogen', 'tOutGanddal', 'tOutNeslandsvatn'}),
     return;
 end;
 
